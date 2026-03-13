@@ -1,0 +1,368 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  ChevronDown, Calendar, CheckCircle2, HelpCircle, 
+  Plus, Minus, MapPin, GraduationCap, Briefcase, 
+  ShieldCheck, ArrowRight, BookOpen, MessageCircle, Zap
+} from 'lucide-react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+
+// 註冊 Chart.js 元件
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export default function App() {
+  // 載入漫畫風專用字體
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+TC:wght@700;900&family=Quicksand:wght@700&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+  }, []);
+
+  return (
+    <div className="min-h-screen text-black comic-bg overflow-x-hidden" style={{ fontFamily: "'Noto Sans TC', sans-serif" }}>
+      <style>{`
+        .comic-bg {
+          background-color: #f8fafc;
+          background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
+          background-size: 20px 20px;
+        }
+        .comic-shadow {
+          box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+        }
+        .comic-shadow-sm {
+          box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+        }
+        .comic-border {
+          border: 4px solid #000;
+        }
+        .text-stroke {
+          color: white;
+          text-shadow: 4px 4px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+        .halftone-bg {
+          background-image: radial-gradient(rgba(0,0,0,0.1) 15%, transparent 16%);
+          background-size: 8px 8px;
+        }
+        @media (max-width: 640px) {
+          .text-stroke {
+            text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
+          }
+        }
+      `}</style>
+      
+      <Navbar />
+      <HeroSection />
+      <FinanceSection />
+      <FeaturesSection />
+      <SchoolsSection />
+      <TimelineSection />
+      <FAQSection />
+      <ContactSection />
+      <Footer />
+    </div>
+  );
+}
+
+// 1. 導航列
+function Navbar() {
+  return (
+    <nav className="fixed top-0 left-0 right-0 bg-yellow-400 border-b-4 border-black z-50 h-20 flex items-center shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <div className="bg-white border-2 border-black p-1 comic-shadow-sm transform -rotate-6">
+            <Zap className="text-red-500 fill-red-500" size={20} />
+          </div>
+          <span className="font-black text-xl sm:text-2xl tracking-tighter ml-1">TAIWAN 3+4</span>
+        </div>
+        <div className="hidden md:flex gap-6 lg:gap-8 font-black text-lg">
+          <a href="#finance" className="hover:text-red-600 transition-colors">財務分析</a>
+          <a href="#schools" className="hover:text-red-600 transition-colors">合作學校</a>
+          <a href="#timeline" className="hover:text-red-600 transition-colors">報名時程</a>
+          <a href="#faq" className="hover:text-red-600 transition-colors">常見問題</a>
+        </div>
+        <a href="#contact" className="bg-red-500 text-white border-2 sm:border-4 border-black px-4 sm:px-6 py-2 font-black text-sm sm:text-base comic-shadow-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+          立即諮詢 !
+        </a>
+      </div>
+    </nav>
+  );
+}
+
+// 2. 首屏區塊
+function HeroSection() {
+  return (
+    <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-32 bg-cyan-400 border-b-8 border-black overflow-hidden px-4">
+      <div className="absolute inset-0 opacity-10 halftone-bg"></div>
+      <div className="relative z-10 text-center max-w-5xl mx-auto">
+        <div className="inline-block bg-yellow-400 border-4 border-black px-4 sm:px-6 py-2 text-sm sm:text-xl font-black mb-6 sm:mb-8 comic-shadow transform -rotate-3 animate-pulse">
+          💥 2026 年度馬來西亞專區報名中！
+        </div>
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-black mb-6 sm:mb-8 leading-tight text-stroke tracking-widest transform rotate-1 uppercase">
+          SPM 後的<br/><span className="text-yellow-400">華麗轉身</span>
+        </h1>
+        <div className="bg-white border-4 border-black comic-shadow p-6 sm:p-8 max-w-3xl mx-auto mb-10 sm:mb-12 transform -rotate-1">
+          <p className="text-lg sm:text-3xl font-black leading-relaxed">
+            台灣政府官方認證「3年高中+4年大學」產學專班。<br/>
+            <span className="text-red-600 bg-yellow-300 px-2 inline-block mt-2 font-black italic">免學費、拿津貼、拿學位！</span>
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+          <a href="#finance" className="bg-white border-4 border-black text-black px-8 py-4 font-black text-lg sm:text-2xl comic-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">財務解密 ➡️</a>
+          <a href="#contact" className="bg-red-500 border-4 border-black text-white px-8 py-4 font-black text-lg sm:text-2xl comic-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">聯繫代表 💬</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// 3. 財務分析圖表
+function FinanceSection() {
+  const options = {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#000',
+        titleFont: { size: 14, weight: 'bold' },
+        bodyFont: { size: 16, weight: 'bold' },
+        callbacks: {
+          label: (ctx) => (ctx.raw < 0 ? '預估支出: ' : '預估結餘: ') + 'RM ' + Math.abs(ctx.raw).toLocaleString()
+        }
+      }
+    },
+    scales: {
+      x: { grid: { color: '#000' }, ticks: { font: { weight: 'bold', size: 10 } } },
+      y: { grid: { display: false }, ticks: { font: { weight: 'bold', size: 12 } } }
+    }
+  };
+
+  const data = {
+    labels: ['一般私大', '一般國大', '3+4 專班'],
+    datasets: [{
+      data: [-120000, -80000, 45000],
+      backgroundColor: ['#ef4444', '#fbbf24', '#22c55e'],
+      borderColor: '#000',
+      borderWidth: 4,
+    }]
+  };
+
+  return (
+    <section id="finance" className="py-16 sm:py-24 border-b-8 border-black bg-white px-4">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-black text-stroke mb-10 sm:text-center transform -rotate-2 uppercase">數據說話！為什麼選 3+4？</h2>
+        <div className="bg-slate-50 border-4 border-black p-4 sm:p-8 comic-shadow relative">
+            <div className="absolute top-0 right-0 bg-yellow-400 border-b-4 border-l-4 border-black px-3 py-1 text-xs sm:text-base font-black">實時估算</div>
+            <div className="h-64 sm:h-80 w-full">
+                <Bar options={options} data={data} />
+            </div>
+            <p className="mt-6 sm:mt-8 text-center font-black text-sm sm:text-base text-slate-500 italic leading-relaxed">
+              透過半工半讀，您不僅能免除學費，畢業後還能帶回一筆啟動基金！
+            </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// 4. 計畫優勢
+function FeaturesSection() {
+  const features = [
+    { icon: "💰", title: "學費全免 & 津貼", desc: "高中三年學費全免，每月實習領取薪資與津貼，自己負擔生活費。", color: "bg-yellow-400" },
+    { icon: "🎓", title: "3+4 升學路徑", desc: "3年高職直升4年大學，七年取得雙文憑，畢業後可直接留台發展。", color: "bg-pink-400" },
+    { icon: "🛡️", title: "官方認證最安全", desc: "僑委會官方主導專案，簽證與實習完全合法，全程有老師駐點照顧。", color: "bg-green-400" }
+  ];
+
+  return (
+    <section id="features" className="py-16 sm:py-24 border-b-8 border-black bg-white px-4">
+      <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+        {features.map((f, i) => (
+          <div key={i} className={`${f.color} border-4 border-black p-6 sm:p-8 comic-shadow transform hover:-translate-y-2 transition-transform`}>
+            <div className="bg-white border-4 border-black w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-6 comic-shadow rounded-full text-3xl sm:text-4xl">{f.icon}</div>
+            <h3 className="text-xl sm:text-2xl font-black mb-4 bg-white inline-block px-2 border-2 border-black tracking-tighter">{f.title}</h3>
+            <p className="text-base sm:text-lg font-bold leading-relaxed">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// 5. 合作學校
+function SchoolsSection() {
+  const [filter, setFilter] = useState('all');
+  const schools = [
+    { name: "六信高中", loc: "台南", desc: "百年名校，餐飲與烘焙全台頂尖。", majors: ["餐飲管理", "烘焙食品"], color: "bg-red-400", link: "https://www.lhvs.tn.edu.tw/" },
+    { name: "新光高中", loc: "高雄", desc: "設備新穎，與產業界對接緊密。", majors: ["餐飲管理", "美容美髮"], color: "bg-blue-400", link: "https://sg.sgshedu.tw/" },
+    { name: "育德工家", loc: "台南", desc: "技職教育專家，資訊與餐飲強項。", majors: ["餐飲管理", "資訊科"], color: "bg-green-400", link: "https://sites.google.com/ytvs.tn.edu.tw/2024html/" },
+    { name: "華德工家", loc: "高雄", desc: "多元實習機會，對僑生照顧入微。", majors: ["餐飲管理", "汽車科", "資訊科"], color: "bg-purple-400", link: "https://www.hdvs.kh.edu.tw/" }
+  ];
+
+  const filteredSchools = filter === 'all' ? schools : schools.filter(s => s.loc === filter);
+
+  return (
+    <section id="schools" className="py-16 sm:py-24 bg-yellow-300 border-b-8 border-black px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-10 sm:mb-16 gap-6 text-center md:text-left">
+            <h2 className="text-3xl sm:text-4xl font-black bg-white border-4 border-black inline-block px-6 py-2 sm:px-8 sm:py-3 comic-shadow transform rotate-1 uppercase">名校探索</h2>
+            <div className="flex gap-2 sm:gap-4">
+                <button onClick={() => setFilter('all')} className={`border-2 sm:border-4 border-black px-3 py-1 sm:px-6 sm:py-2 font-black comic-shadow-sm transition-all text-sm sm:text-base ${filter === 'all' ? 'bg-red-500 text-white' : 'bg-white'}`}>全部</button>
+                <button onClick={() => setFilter('台南')} className={`border-2 sm:border-4 border-black px-3 py-1 sm:px-6 sm:py-2 font-black comic-shadow-sm transition-all text-sm sm:text-base ${filter === '台南' ? 'bg-red-500 text-white' : 'bg-white'}`}>台南</button>
+                <button onClick={() => setFilter('高雄')} className={`border-2 sm:border-4 border-black px-3 py-1 sm:px-6 sm:py-2 font-black comic-shadow-sm transition-all text-sm sm:text-base ${filter === '高雄' ? 'bg-red-500 text-white' : 'bg-white'}`}>高雄</button>
+            </div>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {filteredSchools.map((s, i) => (
+            <div key={i} className="bg-white border-4 border-black comic-shadow flex flex-col h-full transform hover:-translate-y-2 transition-transform">
+              <div className={`h-24 ${s.color} border-b-4 border-black flex items-center justify-center text-4xl`}>🏫</div>
+              <div className="p-6 flex-grow">
+                <h3 className="font-black text-2xl mb-2">{s.name}</h3>
+                <p className="font-bold text-sm mb-4 text-slate-500">📍 台灣 {s.loc}</p>
+                <p className="text-base font-bold mb-4 border-l-4 border-black pl-3 leading-relaxed">{s.desc}</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {s.majors.map((m, j) => <span key={j} className="text-xs font-black bg-yellow-100 border-2 border-black px-2 py-1">{m}</span>)}
+                </div>
+              </div>
+              <a href={s.link} target="_blank" rel="noopener noreferrer" className="bg-black text-white text-center py-4 font-black hover:bg-red-600 transition-colors uppercase tracking-widest text-sm">官網 GO!</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// 6. 時程表
+function TimelineSection() {
+  const [active, setActive] = useState(0);
+  const steps = [
+    { date: "01 - 03月", title: "諮詢準備期", desc: "聯繫駐地代表，準備 SPM 預估成績、護照與基礎申請文件。" },
+    { date: "03 - 05月", title: "正式報名階段", desc: "提交官方申請系統。由校務代表協助審核確保符合資格。" },
+    { date: "06 - 07月", title: "錄取與辦簽", desc: "公告錄取名單！由代表指導辦理赴台簽證、體檢與相關手續。" },
+    { date: "09月", title: "飛向台灣", desc: "安排班機抵台，正式入學開啟 3+4 的半工半讀新生活！" }
+  ];
+
+  return (
+    <section id="timeline" className="py-16 sm:py-24 border-b-8 border-black bg-white px-4">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-black text-stroke mb-10 sm:text-center transform rotate-1 uppercase">2026 入學流程</h2>
+        <div className="space-y-4">
+          {steps.map((step, i) => (
+            <div key={i} className={`border-4 border-black comic-shadow transition-all ${active === i ? 'bg-yellow-200 translate-x-1 sm:translate-x-2' : 'bg-white'}`}>
+              <button onClick={() => setActive(i)} className="w-full flex items-center justify-between p-4 sm:p-6 text-left font-black text-base sm:text-xl outline-none">
+                <span className="flex items-center flex-wrap gap-2 sm:gap-4">
+                  <span className="bg-black text-white px-2 py-1 transform -skew-x-12 text-sm sm:text-base">{step.date}</span> 
+                  {step.title}
+                </span>
+                <ChevronDown className={`shrink-0 transition-transform duration-300 ${active === i ? 'rotate-180' : ''}`} />
+              </button>
+              {active === i && <div className="p-6 sm:p-8 border-t-4 border-black font-bold text-base sm:text-lg bg-white leading-relaxed">{step.desc}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// 7. 常見問題
+function FAQSection() {
+  const [open, setOpen] = useState(null);
+  const faqs = [
+    { q: "這個計畫是合法的嗎？會不會是詐騙？", a: "這是由僑委會主導的官方計畫，全程受台灣教育部監管，所有實習皆為合法對接，並受台灣勞基法保障。" },
+    { q: "SPM 成績要求？不及格也能報名嗎？", a: "更看重學習態度與面試表現。只要具備 SPM 成績單（或預估成績）並完成中五課程即可報名。" },
+    { q: "高中三年真的學費全免？家長要負擔什麼？", a: "是的，高中學費由政府全額補助。家長僅需負擔雜費與生活費（學生可透過實習薪資自理）。" },
+    { q: "孩子在台灣的實習環境安全嗎？", a: "皆為知名大型合法企業，學校老師會定期駐點督導，確保學生安全與實習權益不受侵害。" },
+    { q: "畢業後能留在台灣工作嗎？", a: "可以！畢業取得大學學位後，可透過「評點制」申請留台工作。擁有在地經驗起薪更具優勢。" }
+  ];
+
+  return (
+    <section id="faq" className="py-16 sm:py-24 bg-pink-400 border-b-8 border-black px-4">
+      <div className="max-w-4xl mx-auto text-center md:text-left">
+        <h2 className="text-3xl sm:text-6xl font-black text-stroke text-center mb-10 sm:mb-16 uppercase">解惑專區</h2>
+        <div className="grid gap-4">
+          {faqs.map((f, i) => (
+            <div key={i} className="bg-white border-4 border-black comic-shadow text-left">
+              <button onClick={() => setOpen(open === i ? null : i)} className="w-full p-4 sm:p-6 text-left font-black text-lg sm:text-xl flex justify-between items-center outline-none">
+                <span className="flex gap-3 sm:gap-4"><span className="text-red-600">Q.</span>{f.q}</span>
+                <div className="shrink-0">{open === i ? <Minus size={20}/> : <Plus size={20}/>}</div>
+              </button>
+              {open === i && <div className="p-4 sm:p-6 border-t-4 border-black font-bold text-base sm:text-lg bg-slate-50 leading-relaxed text-slate-700">A. {f.a}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// 8. 聯絡代表
+function ContactSection() {
+  return (
+    <section id="contact" className="py-16 sm:py-24 bg-white border-b-8 border-black relative overflow-hidden halftone-bg px-4">
+      <div className="max-w-5xl mx-auto relative z-10 text-center">
+        <div className="mb-10 sm:mb-16">
+          <div className="inline-block bg-black text-yellow-400 px-4 py-2 text-lg sm:text-2xl font-black transform -skew-x-12 mb-6">ACTION NOW!</div>
+          <h2 className="text-3xl sm:text-6xl font-black text-stroke mb-6 uppercase">掃碼諮詢代表</h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
+          {/* WhatsApp */}
+          <div className="bg-green-400 border-4 border-black p-6 sm:p-10 comic-shadow flex flex-col items-center transform hover:rotate-1 transition-transform">
+            <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md">
+                <img src="https://i.imgur.com/YdXztNr.png" alt="WhatsApp QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
+            </div>
+            <h3 className="text-xl sm:text-2xl font-black bg-white px-2 mb-2 tracking-tighter">馬來西亞駐地代表</h3>
+            <p className="font-black text-lg sm:text-xl mb-6 bg-black text-white px-2 tracking-widest">+63 998 919 5808</p>
+            <a href="https://wa.me/639989195808" target="_blank" rel="noopener noreferrer" className="w-full bg-white border-4 border-black text-black py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-yellow-300 text-center transition-colors">直接對話 !</a>
+          </div>
+          {/* LINE */}
+          <div className="bg-blue-400 border-4 border-black p-6 sm:p-10 comic-shadow flex flex-col items-center transform hover:-rotate-1 transition-transform">
+            <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md">
+                <img src="https://i.imgur.com/QTAePgC.jpeg" alt="LINE QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
+            </div>
+            <h3 className="text-xl sm:text-2xl font-black bg-white px-2 mb-2 tracking-tighter">台灣校務辦公室</h3>
+            <p className="font-black text-lg sm:text-xl mb-6 bg-black text-white px-2 tracking-widest">+886 982 815 234</p>
+            <a href="https://line.me/ti/p/~+886982815234" target="_blank" rel="noopener noreferrer" className="w-full bg-[#06C755] border-4 border-black text-white py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-black text-center transition-colors">加 LINE 好友 !</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// 9. 頁腳
+function Footer() {
+  return (
+    <footer className="bg-black text-white py-12 sm:py-20 text-center border-t-8 border-yellow-400 px-4">
+      <div className="max-w-4xl mx-auto flex flex-col items-center">
+        <div className="bg-white p-3 sm:p-4 border-4 border-black comic-shadow transform -rotate-6 mb-8 inline-block">
+            <GraduationCap className="text-black" size={36} />
+        </div>
+        <h3 className="font-black text-2xl sm:text-3xl mb-4 text-yellow-400 uppercase tracking-widest">Taiwan 3+4 Project</h3>
+        <div className="h-1 w-16 bg-gray-800 my-6 sm:my-8 mx-auto"></div>
+        <p className="text-base sm:text-lg font-bold text-gray-400 leading-relaxed max-w-2xl px-4">
+          本平台僅供馬來西亞 SPM 畢業生赴台就讀諮詢。<br/>
+          具體學制與補助政策依台灣僑務委員會（OCAC）最新公告為準。
+        </p>
+        <p className="text-xs sm:text-sm font-black text-yellow-600 mt-10 sm:mt-12 tracking-widest uppercase">&copy; {new Date().getFullYear()} TAIWAN 3+4 PROGRAM. ALL RIGHTS RESERVED.</p>
+      </div>
+    </footer>
+  );
+}
