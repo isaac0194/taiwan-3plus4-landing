@@ -209,10 +209,38 @@ function FeaturesSection() {
 function SchoolsSection() {
   const [filter, setFilter] = useState('all');
   const schools = [
-    { name: "六信高中", loc: "台南", desc: "百年名校，餐飲與烘焙全台頂尖。", majors: ["餐飲管理", "烘焙食品"], color: "bg-red-400", link: "https://www.lhvs.tn.edu.tw/" },
-    { name: "新光高中", loc: "高雄", desc: "設備新穎，與產業界對接緊密。", majors: ["餐飲管理", "美容美髮"], color: "bg-blue-400", link: "https://sg.sgshedu.tw/" },
-    { name: "育德工家", loc: "台南", desc: "技職教育專家，資訊與餐飲強項。", majors: ["餐飲管理", "資訊科"], color: "bg-green-400", link: "https://sites.google.com/ytvs.tn.edu.tw/2024html/" },
-    { name: "華德工家", loc: "高雄", desc: "多元實習機會，對僑生照顧入微。", majors: ["餐飲管理", "汽車科", "資訊科"], color: "bg-purple-400", link: "https://www.hdvs.kh.edu.tw/" }
+    { 
+      name: "六信高中", 
+      loc: "台南", 
+      desc: "百年名校，餐飲與烘焙全台頂尖。", 
+      majors: ["資訊科", "烘焙科"], 
+      color: "bg-red-400", 
+      link: "https://www.lhvs.tn.edu.tw/" 
+    },
+    { 
+      name: "新光高中", 
+      loc: "高雄", 
+      desc: "設備新穎，與產業界對接緊密。", 
+      majors: ["資訊科"], 
+      color: "bg-blue-400", 
+      link: "https://sg.sgshedu.tw/" 
+    },
+    { 
+      name: "育德工家", 
+      loc: "台南", 
+      desc: "技職教育專家，資訊與餐飲強項。", 
+      majors: ["烘焙科", "餐飲科"], 
+      color: "bg-green-400", 
+      link: "https://sites.google.com/ytvs.tn.edu.tw/2024html/" 
+    },
+    { 
+      name: "華德工家", 
+      loc: "高雄", 
+      desc: "多元實習機會，對僑生照顧入微。", 
+      majors: ["資訊科", "烘焙科", "餐飲科"], 
+      color: "bg-purple-400", 
+      link: "https://www.hdvs.kh.edu.tw/" 
+    }
   ];
 
   const filteredSchools = filter === 'all' ? schools : schools.filter(s => s.loc === filter);
@@ -249,31 +277,133 @@ function SchoolsSection() {
   );
 }
 
-// 6. 時程表
+// 6. 2026 行事曆時程表 (完全重製為詳細版)
 function TimelineSection() {
   const [active, setActive] = useState(0);
   const steps = [
-    { date: "01 - 03月", title: "諮詢準備期", desc: "聯繫駐地代表，準備 SPM 預估成績、護照與基礎申請文件。" },
-    { date: "03 - 05月", title: "正式報名階段", desc: "提交官方申請系統。由校務代表協助審核確保符合資格。" },
-    { date: "06 - 07月", title: "錄取與辦簽", desc: "公告錄取名單！由代表指導辦理赴台簽證、體檢與相關手續。" },
-    { date: "09月", title: "飛向台灣", desc: "安排班機抵台，正式入學開啟 3+4 的半工半讀新生活！" }
+    { 
+      date: "12 - 01月", 
+      title: "最後衝刺與截止報名", 
+      tasks: "完成線上系統填寫，確認所有掃描文件清晰無誤。",
+      remind: "2026年1月31日為全國統一截止日。",
+      point: "SPM 考生可先提交預估成績或校內成績單卡位。",
+      color: "bg-yellow-400"
+    },
+    { 
+      date: "02月", 
+      title: "文件初審與補件期", 
+      tasks: "留意 E-mail 或代辦單位通知，若文件不全需在此時完成補齊。",
+      remind: "確保護照效期超過 6 個月，若效期不足應利用此空檔辦理新護照。",
+      point: "定期檢查垃圾信箱，避免錯過官方重要通知。",
+      color: "bg-cyan-400"
+    },
+    { 
+      date: "03月", 
+      title: "入學面試 (各校安排)", 
+      tasks: "準備視訊或現場面試（視當年校方安排而定）。",
+      remind: "重點在於表達學習意願、團隊合作意願，以及對實習辛苦程度的心理建設。",
+      point: "建議穿著整齊校服或正裝，展現良好態度。",
+      color: "bg-pink-400"
+    },
+    { 
+      date: "04月", 
+      title: "資格複審與資格確認", 
+      tasks: "僑委會與教育部進行最終身分與學歷審查。",
+      remind: "此階段為後台作業，學生僅需保持通訊暢通即可。",
+      point: "若學歷文件有變更（如領取正式 SPM），應主動補交。",
+      color: "bg-green-400"
+    },
+    { 
+      date: "05月", 
+      title: "錄取公告與榜單確認", 
+      tasks: "預計於 5月下旬 公告正式錄取名單。",
+      remind: "錄取學生會收到正式的「錄取通知書」。",
+      point: "這是一份法律文件，未來辦理簽證時必須用到，請妥善保管。",
+      color: "bg-yellow-400"
+    },
+    { 
+      date: "06月", 
+      title: "學歷驗證與行前說明", 
+      tasks: "辦理馬來西亞外交部與台北經文處 (TECO) 的學歷認證。",
+      remind: "舉辦行前說明會，確認入學雜費、機票購買及相關行程細節。",
+      point: "認證程序較繁瑣，建議提早預約辦公時間。",
+      color: "bg-cyan-400"
+    },
+    { 
+      date: "07月", 
+      title: "辦理簽證與行李打包", 
+      tasks: "申請台灣居留簽證 (Visa)。",
+      remind: "依照學校安排之「入台批次」訂購機票。",
+      point: "打包清單包含：正式服裝（面試用）、個人藥品、馬來西亞特色小點心（思鄉用）。",
+      color: "bg-pink-400"
+    },
+    { 
+      date: "08月", 
+      title: "赴台啟航與入學輔導", 
+      tasks: "2026年8月中下旬 統一搭機赴台。",
+      remind: "入境後進行體檢、辦理居留證，並參與學校的新生生活輔導週。",
+      point: "正式告別家人，準備迎接獨立生活的第一關。",
+      color: "bg-green-400"
+    },
+    { 
+      date: "09月", 
+      title: "正式開學與職前訓練", 
+      tasks: "正式進入高職階段學習，並開始實習前的基礎安全與技能教育。",
+      remind: "建立正確的工作倫理與學習態度。",
+      point: "開始與台灣本地學生交流，擴展人際關係。",
+      color: "bg-slate-200"
+    }
   ];
 
   return (
     <section id="timeline" className="py-16 sm:py-24 border-b-8 border-black bg-white px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-black text-stroke mb-10 sm:text-center transform rotate-1 uppercase">2026 入學流程</h2>
-        <div className="space-y-4">
+        <h2 className="text-3xl sm:text-5xl font-black text-stroke mb-10 text-center transform rotate-1 uppercase">2026 招生行事曆</h2>
+        <p className="text-center font-black mb-12 text-slate-500">點擊月份查看詳細任務與重點 🔍</p>
+        
+        <div className="space-y-6">
           {steps.map((step, i) => (
-            <div key={i} className={`border-4 border-black comic-shadow transition-all ${active === i ? 'bg-yellow-200 translate-x-1 sm:translate-x-2' : 'bg-white'}`}>
-              <button onClick={() => setActive(i)} className="w-full flex items-center justify-between p-4 sm:p-6 text-left font-black text-base sm:text-xl outline-none">
+            <div key={i} className={`border-4 border-black comic-shadow transition-all ${active === i ? 'translate-x-1 sm:translate-x-4' : ''}`}>
+              <button 
+                onClick={() => setActive(i)} 
+                className={`w-full flex items-center justify-between p-4 sm:p-6 text-left font-black text-base sm:text-xl outline-none transition-colors ${active === i ? step.color : 'bg-white hover:bg-slate-50'}`}
+              >
                 <span className="flex items-center flex-wrap gap-2 sm:gap-4">
-                  <span className="bg-black text-white px-2 py-1 transform -skew-x-12 text-sm sm:text-base">{step.date}</span> 
+                  <span className={`px-3 py-1 border-2 border-black transform -skew-x-12 text-sm sm:text-base ${active === i ? 'bg-white text-black' : 'bg-black text-white'}`}>
+                    {step.date}
+                  </span> 
                   {step.title}
                 </span>
                 <ChevronDown className={`shrink-0 transition-transform duration-300 ${active === i ? 'rotate-180' : ''}`} />
               </button>
-              {active === i && <div className="p-6 sm:p-8 border-t-4 border-black font-bold text-base sm:text-lg bg-white leading-relaxed">{step.desc}</div>}
+              
+              {active === i && (
+                <div className="p-6 sm:p-8 border-t-4 border-black bg-white grid gap-6">
+                  <div className="flex gap-4">
+                    <div className="bg-blue-100 border-2 border-black p-2 h-fit text-xl">📝</div>
+                    <div>
+                      <h4 className="font-black text-lg text-blue-800 mb-1 underline decoration-2">關鍵任務</h4>
+                      <p className="font-bold text-slate-700">{step.tasks}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-4">
+                    <div className="bg-yellow-100 border-2 border-black p-2 h-fit text-xl">🔔</div>
+                    <div>
+                      <h4 className="font-black text-lg text-yellow-800 mb-1 underline decoration-2">提醒</h4>
+                      <p className="font-bold text-slate-700">{step.remind}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-4">
+                    <div className="bg-red-100 border-2 border-black p-2 h-fit text-xl">🚩</div>
+                    <div>
+                      <h4 className="font-black text-lg text-red-800 mb-1 underline decoration-2">重點</h4>
+                      <p className="font-bold text-slate-700">{step.point}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -290,7 +420,7 @@ function FAQSection() {
     { q: "SPM 成績要求？不及格也能報名嗎？", a: "更看重學習態度與面試表現。只要具備 SPM 成績單（或預估成績）並完成中五課程即可報名。" },
     { q: "高中三年真的學費全免？家長要負擔什麼？", a: "是的，高中學費由政府全額補助。家長僅需負擔雜費與生活費（學生可透過實習薪資自理）。" },
     { q: "孩子在台灣的實習環境安全嗎？", a: "皆為知名大型合法企業，學校老師會定期駐點督導，確保學生安全與實習權益不受侵害。" },
-    { q: "畢業後能留在台灣工作嗎？", a: "可以！畢業取得大學學位後，可透過「評點制」申請留台工作。擁有在地經驗起薪更具優勢。" }
+    { q: "畢業後能留在台灣工作嗎？", a: "可以。畢業取得大學學位後，可透過「評點制」申請留台工作。擁有在地經驗起薪更具優勢。" }
   ];
 
   return (
