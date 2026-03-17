@@ -469,7 +469,7 @@ function ContactSection() {
             </div>
             <h3 className="text-xl sm:text-2xl font-black bg-white px-2 mb-2 tracking-tighter">台灣校務辦公室</h3>
             <p className="font-black text-lg sm:text-xl mb-6 bg-black text-white px-2 tracking-widest">+886 982 815 234</p>
-            <a href="https://line.me/ti/p/~+886982815234" target="_blank" rel="noopener noreferrer" className="w-full bg-[#06C755] border-4 border-black text-white py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-black text-center transition-colors">加 LINE 好友 !</a>
+            <a href="https://line.me/R/ti/p/@+886982815234" target="_blank" rel="noopener noreferrer" className="w-full bg-[#06C755] border-4 border-black text-white py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-black text-center transition-colors">加 LINE 好友 !</a>
           </div>
         </div>
       </div>
@@ -495,4 +495,4 @@ function Footer() {
       </div>
     </footer>
   );
-}
+}eof
