@@ -29,7 +29,8 @@ export default function App() {
   // 載入漫畫風專用字體
   useEffect(() => {
     const link = document.createElement('link');
-    link.href = '[https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+TC:wght@700;900&family=Quicksand:wght@700&display=swap](https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+TC:wght@700;900&family=Quicksand:wght@700&display=swap)';
+    // 修正點：移除 Markdown 連結格式，還原為純字串網址
+    link.href = 'https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+TC:wght@700;900&family=Quicksand:wght@700&display=swap';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
   }, []);
@@ -205,41 +206,41 @@ function FeaturesSection() {
   );
 }
 
-// 5. 合作學校
+// 5. 合作學校 (已更新科系)
 function SchoolsSection() {
   const [filter, setFilter] = useState('all');
   const schools = [
     { 
       name: "六信高中", 
       loc: "台南", 
-      desc: "百年名校，具備深厚的技職教育底蘊，設備頂尖。", 
+      desc: "百年名校，具備深厚的技職教育底蘊。", 
       majors: ["資訊科", "烘焙科"], 
       color: "bg-red-400", 
-      link: "[https://www.lhvs.tn.edu.tw/](https://www.lhvs.tn.edu.tw/)" 
+      link: "https://www.lhvs.tn.edu.tw/" 
     },
     { 
       name: "新光高中", 
       loc: "高雄", 
-      desc: "設備新穎，產學對接緊密，環境優美。", 
+      desc: "設備新穎，與產業界對接緊密。", 
       majors: ["資訊科"], 
       color: "bg-blue-400", 
-      link: "[https://sg.sgshedu.tw/](https://sg.sgshedu.tw/)" 
+      link: "https://sg.sgshedu.tw/" 
     },
     { 
       name: "育德工家", 
       loc: "台南", 
-      desc: "技職教育專家，資訊與餐飲是校內強項。", 
+      desc: "技職教育專家，資訊與餐飲強項。", 
       majors: ["烘焙科", "餐飲科"], 
       color: "bg-green-400", 
-      link: "[https://sites.google.com/ytvs.tn.edu.tw/2024html/](https://sites.google.com/ytvs.tn.edu.tw/2024html/)" 
+      link: "https://sites.google.com/ytvs.tn.edu.tw/2024html/" 
     },
     { 
       name: "華德工家", 
       loc: "高雄", 
-      desc: "多元實習機會，對僑生生活照顧無微不至。", 
+      desc: "多元實習機會，對僑生照顧入微。", 
       majors: ["資訊科", "烘焙科", "餐飲科"], 
       color: "bg-purple-400", 
-      link: "[https://www.hdvs.kh.edu.tw/](https://www.hdvs.kh.edu.tw/)" 
+      link: "https://www.hdvs.kh.edu.tw/" 
     }
   ];
 
@@ -360,7 +361,6 @@ function TimelineSection() {
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl sm:text-5xl font-black text-stroke mb-10 text-center transform rotate-1 uppercase">2026 招生行事曆</h2>
         <p className="text-center font-black mb-12 text-slate-500 italic">點擊月份查看詳細任務重點 🔍</p>
-        
         <div className="space-y-6">
           {steps.map((step, i) => (
             <div key={i} className={`border-4 border-black comic-shadow transition-all ${active === i ? 'translate-x-1 sm:translate-x-4' : ''}`}>
@@ -369,38 +369,23 @@ function TimelineSection() {
                 className={`w-full flex items-center justify-between p-4 sm:p-6 text-left font-black text-base sm:text-xl outline-none transition-colors ${active === i ? step.color : 'bg-white hover:bg-slate-50'}`}
               >
                 <span className="flex items-center flex-wrap gap-2 sm:gap-4">
-                  <span className={`px-3 py-1 border-2 border-black transform -skew-x-12 text-sm sm:text-base ${active === i ? 'bg-white text-black' : 'bg-black text-white'}`}>
-                    {step.date}
-                  </span> 
-                  {step.title}
+                  <span className={`px-3 py-1 border-2 border-black transform -skew-x-12 text-sm sm:text-base ${active === i ? 'bg-white text-black' : 'bg-black text-white'}`}>{step.date}</span> {step.title}
                 </span>
                 <ChevronDown className={`shrink-0 transition-transform duration-300 ${active === i ? 'rotate-180' : ''}`} />
               </button>
-              
               {active === i && (
                 <div className="p-6 sm:p-8 border-t-4 border-black bg-white grid gap-6">
                   <div className="flex gap-4">
                     <div className="bg-blue-100 border-2 border-black p-2 h-fit text-xl">📝</div>
-                    <div>
-                      <h4 className="font-black text-lg text-blue-800 mb-1 underline decoration-2">關鍵任務</h4>
-                      <p className="font-bold text-slate-700">{step.tasks}</p>
-                    </div>
+                    <div><h4 className="font-black text-lg text-blue-800 mb-1 underline decoration-2">關鍵任務</h4><p className="font-bold text-slate-700">{step.tasks}</p></div>
                   </div>
-                  
                   <div className="flex gap-4">
                     <div className="bg-yellow-100 border-2 border-black p-2 h-fit text-xl">🔔</div>
-                    <div>
-                      <h4 className="font-black text-lg text-yellow-800 mb-1 underline decoration-2">提醒</h4>
-                      <p className="font-bold text-slate-700">{step.remind}</p>
-                    </div>
+                    <div><h4 className="font-black text-lg text-yellow-800 mb-1 underline decoration-2">提醒</h4><p className="font-bold text-slate-700">{step.remind}</p></div>
                   </div>
-                  
                   <div className="flex gap-4">
                     <div className="bg-red-100 border-2 border-black p-2 h-fit text-xl">🚩</div>
-                    <div>
-                      <h4 className="font-black text-lg text-red-800 mb-1 underline decoration-2">重點</h4>
-                      <p className="font-bold text-slate-700">{step.point}</p>
-                    </div>
+                    <div><h4 className="font-black text-lg text-red-800 mb-1 underline decoration-2">重點</h4><p className="font-bold text-slate-700">{step.point}</p></div>
                   </div>
                 </div>
               )}
@@ -456,20 +441,20 @@ function ContactSection() {
           {/* WhatsApp */}
           <div className="bg-green-400 border-4 border-black p-6 sm:p-10 comic-shadow flex flex-col items-center transform hover:rotate-1 transition-transform">
             <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md group-hover:scale-105 transition-transform">
-                <img src="[https://i.imgur.com/YdXztNr.png](https://i.imgur.com/YdXztNr.png)" alt="WhatsApp QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
+                <img src="https://i.imgur.com/YdXztNr.png" alt="WhatsApp QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
             </div>
             <h3 className="text-xl sm:text-2xl font-black bg-white px-2 mb-2 tracking-tighter">馬來西亞駐地代表</h3>
             <p className="font-black text-lg sm:text-xl mb-6 bg-black text-white px-2 tracking-widest">+63 998 919 5808</p>
-            <a href="[https://wa.me/639989195808](https://wa.me/639989195808)" target="_blank" rel="noopener noreferrer" className="w-full bg-white border-4 border-black text-black py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-yellow-300 text-center transition-colors">直接對話 !</a>
+            <a href="https://wa.me/639989195808" target="_blank" rel="noopener noreferrer" className="w-full bg-white border-4 border-black text-black py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-yellow-300 text-center transition-colors">直接對話 !</a>
           </div>
           {/* LINE (電話搜尋優化版) */}
           <div className="bg-blue-400 border-4 border-black p-6 sm:p-10 comic-shadow flex flex-col items-center transform hover:-rotate-1 transition-transform">
             <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md group-hover:scale-105 transition-transform">
-                <img src="[https://i.imgur.com/QTAePgC.jpeg](https://i.imgur.com/QTAePgC.jpeg)" alt="LINE QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
+                <img src="https://i.imgur.com/QTAePgC.jpeg" alt="LINE QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
             </div>
             <h3 className="text-xl sm:text-2xl font-black bg-white px-2 mb-2 tracking-tighter">台灣校務辦公室</h3>
             <p className="font-black text-lg sm:text-xl mb-6 bg-black text-white px-2 tracking-widest">+886 982 815 234</p>
-            <a href="[https://line.me/R/ti/p/@+886982815234](https://line.me/R/ti/p/@+886982815234)" target="_blank" rel="noopener noreferrer" className="w-full bg-[#06C755] border-4 border-black text-white py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-black text-center transition-colors uppercase">加 LINE 好友 !</a>
+            <a href="https://line.me/R/ti/p/@+886982815234" target="_blank" rel="noopener noreferrer" className="w-full bg-[#06C755] border-4 border-black text-white py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-black text-center transition-colors uppercase">加 LINE 好友 !</a>
           </div>
         </div>
       </div>
@@ -482,15 +467,10 @@ function Footer() {
   return (
     <footer className="bg-black text-white py-12 sm:py-20 text-center border-t-8 border-yellow-400 px-4">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
-        <div className="bg-white p-3 sm:p-4 border-4 border-black comic-shadow transform -rotate-6 mb-8 inline-block">
-            <GraduationCap className="text-black" size={36} />
-        </div>
+        <div className="bg-white p-3 sm:p-4 border-4 border-black comic-shadow transform -rotate-6 mb-8 inline-block"><GraduationCap className="text-black" size={36} /></div>
         <h3 className="font-black text-2xl sm:text-3xl mb-4 text-yellow-400 uppercase tracking-widest">Taiwan 3+4 Project</h3>
         <div className="h-1 w-16 bg-gray-800 my-6 sm:my-8 mx-auto"></div>
-        <p className="text-base sm:text-lg font-bold text-gray-400 leading-relaxed max-w-2xl px-4">
-          本平台僅供馬來西亞 SPM 畢業生赴台就讀諮詢。<br/>
-          具體學制與補助政策依台灣僑務委員會（OCAC）最新公告為準。
-        </p>
+        <p className="text-base sm:text-lg font-bold text-gray-400 leading-relaxed max-w-2xl px-4">本平台僅供馬來西亞 SPM 畢業生赴台就讀諮詢。<br/>具體學制與補助政策依台灣僑務委員會（OCAC）最新公告為準。</p>
         <p className="text-xs sm:text-sm font-black text-yellow-600 mt-10 sm:mt-12 tracking-widest uppercase">&copy; {new Date().getFullYear()} TAIWAN 3+4 PROGRAM. ALL RIGHTS RESERVED.</p>
       </div>
     </footer>
