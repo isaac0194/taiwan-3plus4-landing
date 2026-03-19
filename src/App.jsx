@@ -88,7 +88,7 @@ function Navbar() {
           <div className="bg-white border-2 border-black p-1 comic-shadow-sm transform -rotate-6">
             <Zap className="text-red-500 fill-red-500" size={20} />
           </div>
-          <span className="font-black text-xl sm:text-2xl tracking-tighter ml-1">TAIWAN 3+4</span>
+          <span className="font-black text-xl sm:text-2xl tracking-tighter ml-1 text-black">TAIWAN 3+4</span>
         </div>
         <div className="hidden md:flex gap-6 lg:gap-8 font-black text-lg">
           <a href="#finance" className="hover:text-red-600 transition-colors">財務分析</a>
@@ -123,8 +123,8 @@ function HeroSection() {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-          <a href="#finance" className="bg-white border-4 border-black text-black px-8 py-4 font-black text-lg sm:text-2xl comic-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">財務解密 ➡️</a>
-          <a href="#contact" className="bg-red-500 border-4 border-black text-white px-8 py-4 font-black text-lg sm:text-2xl comic-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">聯繫代表 💬</a>
+          <a href="#finance" className="bg-white border-4 border-black text-black px-8 py-4 font-black text-lg sm:text-2xl comic-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all text-center">財務解密 ➡️</a>
+          <a href="#contact" className="bg-red-500 border-4 border-black text-white px-8 py-4 font-black text-lg sm:text-2xl comic-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all text-center">聯繫代表 💬</a>
         </div>
       </div>
     </section>
@@ -212,7 +212,7 @@ function SchoolsSection() {
     { 
       name: "六信高中", 
       loc: "台南", 
-      desc: "百年名校，餐飲與烘焙全台頂尖。", 
+      desc: "百年名校，具備深厚的技職教育底蘊，設備頂尖。", 
       majors: ["資訊科", "烘焙科"], 
       color: "bg-red-400", 
       link: "https://www.lhvs.tn.edu.tw/" 
@@ -220,7 +220,7 @@ function SchoolsSection() {
     { 
       name: "新光高中", 
       loc: "高雄", 
-      desc: "設備新穎，與產業界對接緊密。", 
+      desc: "設備新穎，產學對接緊密，環境優美。", 
       majors: ["資訊科"], 
       color: "bg-blue-400", 
       link: "https://sg.sgshedu.tw/" 
@@ -228,7 +228,7 @@ function SchoolsSection() {
     { 
       name: "育德工家", 
       loc: "台南", 
-      desc: "技職教育專家，資訊與餐飲強項。", 
+      desc: "技職教育專家，資訊與餐飲是校內強項。", 
       majors: ["烘焙科", "餐飲科"], 
       color: "bg-green-400", 
       link: "https://sites.google.com/ytvs.tn.edu.tw/2024html/" 
@@ -236,7 +236,7 @@ function SchoolsSection() {
     { 
       name: "華德工家", 
       loc: "高雄", 
-      desc: "多元實習機會，對僑生照顧入微。", 
+      desc: "多元實習機會，對僑生生活照顧無微不至。", 
       majors: ["資訊科", "烘焙科", "餐飲科"], 
       color: "bg-purple-400", 
       link: "https://www.hdvs.kh.edu.tw/" 
@@ -277,7 +277,7 @@ function SchoolsSection() {
   );
 }
 
-// 6. 2026 行事曆時程表 (完全重製為詳細版)
+// 6. 2026 招生行事曆 (詳細 9 步驟詳細版)
 function TimelineSection() {
   const [active, setActive] = useState(0);
   const steps = [
@@ -301,7 +301,7 @@ function TimelineSection() {
       date: "03月", 
       title: "入學面試 (各校安排)", 
       tasks: "準備視訊或現場面試（視當年校方安排而定）。",
-      remind: "重點在於表達學習意願、團隊合作意願，以及對實習辛苦程度的心理建設。",
+      remind: "重點在於表達學習意願、團隊合作意願，以及對實務挑戰的心理建設。",
       point: "建議穿著整齊校服或正裝，展現良好態度。",
       color: "bg-pink-400"
     },
@@ -310,7 +310,7 @@ function TimelineSection() {
       title: "資格複審與資格確認", 
       tasks: "僑委會與教育部進行最終身分與學歷審查。",
       remind: "此階段為後台作業，學生僅需保持通訊暢通即可。",
-      point: "若學歷文件有變更（如領取正式 SPM），應主動補交。",
+      point: "若學歷文件有更新（如領取正式 SPM 證書），應主動補交。",
       color: "bg-green-400"
     },
     { 
@@ -318,15 +318,15 @@ function TimelineSection() {
       title: "錄取公告與榜單確認", 
       tasks: "預計於 5月下旬 公告正式錄取名單。",
       remind: "錄取學生會收到正式的「錄取通知書」。",
-      point: "這是一份法律文件，未來辦理簽證時必須用到，請妥善保管。",
+      point: "這是法律文件，辦理簽證必備，請妥善保管。",
       color: "bg-yellow-400"
     },
     { 
       date: "06月", 
-      title: "學歷驗證與行前說明", 
+      title: "學歷驗證與家長說明會", 
       tasks: "辦理馬來西亞外交部與台北經文處 (TECO) 的學歷認證。",
-      remind: "舉辦行前說明會，確認入學雜費、機票購買及相關行程細節。",
-      point: "認證程序較繁瑣，建議提早預約辦公時間。",
+      remind: "舉辦行前說明會，確認入學雜費、機票購買及相關細節。",
+      point: "認證程序需耗時，建議收到通知後立即預約。",
       color: "bg-cyan-400"
     },
     { 
@@ -334,23 +334,23 @@ function TimelineSection() {
       title: "辦理簽證與行李打包", 
       tasks: "申請台灣居留簽證 (Visa)。",
       remind: "依照學校安排之「入台批次」訂購機票。",
-      point: "打包清單包含：正式服裝（面試用）、個人藥品、馬來西亞特色小點心（思鄉用）。",
+      point: "打包清單包含：正式面試服、個人常備藥、馬來西亞家鄉零食。",
       color: "bg-pink-400"
     },
     { 
       date: "08月", 
       title: "赴台啟航與入學輔導", 
       tasks: "2026年8月中下旬 統一搭機赴台。",
-      remind: "入境後進行體檢、辦理居留證，並參與學校的新生生活輔導週。",
-      point: "正式告別家人，準備迎接獨立生活的第一關。",
+      remind: "入境後進行體檢、辦理居留證，並參與新生生活輔導週。",
+      point: "正式開啟獨立生活的第一關，準備好迎接挑戰。",
       color: "bg-green-400"
     },
     { 
       date: "09月", 
       title: "正式開學與職前訓練", 
-      tasks: "正式進入高職階段學習，並開始實習前的基礎安全與技能教育。",
+      tasks: "正式進入高職學習，並開始實習前的基礎安全與技能教育。",
       remind: "建立正確的工作倫理與學習態度。",
-      point: "開始與台灣本地學生交流，擴展人際關係。",
+      point: "開始與台灣本地學生交流，擴大國際視野。",
       color: "bg-slate-200"
     }
   ];
@@ -359,7 +359,7 @@ function TimelineSection() {
     <section id="timeline" className="py-16 sm:py-24 border-b-8 border-black bg-white px-4">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl sm:text-5xl font-black text-stroke mb-10 text-center transform rotate-1 uppercase">2026 招生行事曆</h2>
-        <p className="text-center font-black mb-12 text-slate-500">點擊月份查看詳細任務與重點 🔍</p>
+        <p className="text-center font-black mb-12 text-slate-500 italic">點擊月份查看詳細任務重點 🔍</p>
         
         <div className="space-y-6">
           {steps.map((step, i) => (
@@ -416,10 +416,10 @@ function TimelineSection() {
 function FAQSection() {
   const [open, setOpen] = useState(null);
   const faqs = [
-    { q: "這個計畫是合法的嗎？會不會是詐騙？", a: "這是由僑委會主導的官方計畫，全程受台灣教育部監管，所有實習皆為合法對接，並受台灣勞基法保障。" },
-    { q: "SPM 成績要求？不及格也能報名嗎？", a: "更看重學習態度與面試表現。只要具備 SPM 成績單（或預估成績）並完成中五課程即可報名。" },
-    { q: "高中三年真的學費全免？家長要負擔什麼？", a: "是的，高中學費由政府全額補助。家長僅需負擔雜費與生活費（學生可透過實習薪資自理）。" },
-    { q: "孩子在台灣的實習環境安全嗎？", a: "皆為知名大型合法企業，學校老師會定期駐點督導，確保學生安全與實習權益不受侵害。" },
+    { q: "這個計畫是合法的嗎？會不會是詐騙？", a: "這是由僑委會主導的官方計畫，全程受台灣教育部監管，實習完全合法，並受勞基法保障。" },
+    { q: "SPM 成績要求？不及格也能報名嗎？", a: "更看重學習態度。只要具備 SPM 成績單（含預估成績）並完成中五課程即可報名面試。" },
+    { q: "高中三年真的學費全免？家長要負擔什麼？", a: "是的，高中學費由政府全額補助。家長僅需負擔雜費與生活費，學生可透過實習薪資自理。" },
+    { q: "孩子在台灣的實習環境安全嗎？", a: "皆為知名合法企業，學校老師會定期駐點督導，確保學生安全與實習權益。" },
     { q: "畢業後能留在台灣工作嗎？", a: "可以。畢業取得大學學位後，可透過「評點制」申請留台工作。擁有在地經驗起薪更具優勢。" }
   ];
 
@@ -443,7 +443,7 @@ function FAQSection() {
   );
 }
 
-// 8. 聯絡代表
+// 8. 聯絡與二維碼 (更新 LINE 連結)
 function ContactSection() {
   return (
     <section id="contact" className="py-16 sm:py-24 bg-white border-b-8 border-black relative overflow-hidden halftone-bg px-4">
@@ -455,21 +455,21 @@ function ContactSection() {
         <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
           {/* WhatsApp */}
           <div className="bg-green-400 border-4 border-black p-6 sm:p-10 comic-shadow flex flex-col items-center transform hover:rotate-1 transition-transform">
-            <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md">
+            <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md group-hover:scale-105 transition-transform">
                 <img src="https://i.imgur.com/YdXztNr.png" alt="WhatsApp QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
             </div>
             <h3 className="text-xl sm:text-2xl font-black bg-white px-2 mb-2 tracking-tighter">馬來西亞駐地代表</h3>
             <p className="font-black text-lg sm:text-xl mb-6 bg-black text-white px-2 tracking-widest">+63 998 919 5808</p>
             <a href="https://wa.me/639989195808" target="_blank" rel="noopener noreferrer" className="w-full bg-white border-4 border-black text-black py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-yellow-300 text-center transition-colors">直接對話 !</a>
           </div>
-          {/* LINE */}
+          {/* LINE (電話搜尋優化版) */}
           <div className="bg-blue-400 border-4 border-black p-6 sm:p-10 comic-shadow flex flex-col items-center transform hover:-rotate-1 transition-transform">
-            <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md">
+            <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md group-hover:scale-105 transition-transform">
                 <img src="https://i.imgur.com/QTAePgC.jpeg" alt="LINE QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
             </div>
             <h3 className="text-xl sm:text-2xl font-black bg-white px-2 mb-2 tracking-tighter">台灣校務辦公室</h3>
             <p className="font-black text-lg sm:text-xl mb-6 bg-black text-white px-2 tracking-widest">+886 982 815 234</p>
-            <a href="https://line.me/R/ti/p/@+886982815234" target="_blank" rel="noopener noreferrer" className="w-full bg-[#06C755] border-4 border-black text-white py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-black text-center transition-colors">加 LINE 好友 !</a>
+            <a href="https://line.me/R/ti/p/@+886982815234" target="_blank" rel="noopener noreferrer" className="w-full bg-[#06C755] border-4 border-black text-white py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-black text-center transition-colors uppercase">加 LINE 好友 !</a>
           </div>
         </div>
       </div>
@@ -495,4 +495,4 @@ function Footer() {
       </div>
     </footer>
   );
-}eof
+}
