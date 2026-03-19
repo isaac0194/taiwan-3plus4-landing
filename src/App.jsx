@@ -29,7 +29,7 @@ export default function App() {
   // 載入漫畫風專用字體
   useEffect(() => {
     const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+TC:wght@700;900&family=Quicksand:wght@700&display=swap';
+    link.href = '[https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+TC:wght@700;900&family=Quicksand:wght@700&display=swap](https://fonts.googleapis.com/css2?family=Bangers&family=Noto+Sans+TC:wght@700;900&family=Quicksand:wght@700&display=swap)';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
   }, []);
@@ -215,7 +215,7 @@ function SchoolsSection() {
       desc: "百年名校，具備深厚的技職教育底蘊，設備頂尖。", 
       majors: ["資訊科", "烘焙科"], 
       color: "bg-red-400", 
-      link: "https://www.lhvs.tn.edu.tw/" 
+      link: "[https://www.lhvs.tn.edu.tw/](https://www.lhvs.tn.edu.tw/)" 
     },
     { 
       name: "新光高中", 
@@ -223,7 +223,7 @@ function SchoolsSection() {
       desc: "設備新穎，產學對接緊密，環境優美。", 
       majors: ["資訊科"], 
       color: "bg-blue-400", 
-      link: "https://sg.sgshedu.tw/" 
+      link: "[https://sg.sgshedu.tw/](https://sg.sgshedu.tw/)" 
     },
     { 
       name: "育德工家", 
@@ -231,7 +231,7 @@ function SchoolsSection() {
       desc: "技職教育專家，資訊與餐飲是校內強項。", 
       majors: ["烘焙科", "餐飲科"], 
       color: "bg-green-400", 
-      link: "https://sites.google.com/ytvs.tn.edu.tw/2024html/" 
+      link: "[https://sites.google.com/ytvs.tn.edu.tw/2024html/](https://sites.google.com/ytvs.tn.edu.tw/2024html/)" 
     },
     { 
       name: "華德工家", 
@@ -239,7 +239,7 @@ function SchoolsSection() {
       desc: "多元實習機會，對僑生生活照顧無微不至。", 
       majors: ["資訊科", "烘焙科", "餐飲科"], 
       color: "bg-purple-400", 
-      link: "https://www.hdvs.kh.edu.tw/" 
+      link: "[https://www.hdvs.kh.edu.tw/](https://www.hdvs.kh.edu.tw/)" 
     }
   ];
 
@@ -350,7 +350,7 @@ function TimelineSection() {
       title: "正式開學與職前訓練", 
       tasks: "正式進入高職學習，並開始實習前的基礎安全與技能教育。",
       remind: "建立正確的工作倫理與學習態度。",
-      point: "開始與台灣本地學生交流，擴大國際視野。",
+      point: "開始與台灣本地學生交流，擴展人際視野。",
       color: "bg-slate-200"
     }
   ];
@@ -443,7 +443,7 @@ function FAQSection() {
   );
 }
 
-// 8. 聯絡與二維碼 (更新 LINE 連結)
+// 8. 聯絡與二維碼
 function ContactSection() {
   return (
     <section id="contact" className="py-16 sm:py-24 bg-white border-b-8 border-black relative overflow-hidden halftone-bg px-4">
@@ -456,20 +456,20 @@ function ContactSection() {
           {/* WhatsApp */}
           <div className="bg-green-400 border-4 border-black p-6 sm:p-10 comic-shadow flex flex-col items-center transform hover:rotate-1 transition-transform">
             <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md group-hover:scale-105 transition-transform">
-                <img src="https://i.imgur.com/YdXztNr.png" alt="WhatsApp QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
+                <img src="[https://i.imgur.com/YdXztNr.png](https://i.imgur.com/YdXztNr.png)" alt="WhatsApp QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
             </div>
             <h3 className="text-xl sm:text-2xl font-black bg-white px-2 mb-2 tracking-tighter">馬來西亞駐地代表</h3>
             <p className="font-black text-lg sm:text-xl mb-6 bg-black text-white px-2 tracking-widest">+63 998 919 5808</p>
-            <a href="https://wa.me/639989195808" target="_blank" rel="noopener noreferrer" className="w-full bg-white border-4 border-black text-black py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-yellow-300 text-center transition-colors">直接對話 !</a>
+            <a href="[https://wa.me/639989195808](https://wa.me/639989195808)" target="_blank" rel="noopener noreferrer" className="w-full bg-white border-4 border-black text-black py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-yellow-300 text-center transition-colors">直接對話 !</a>
           </div>
           {/* LINE (電話搜尋優化版) */}
           <div className="bg-blue-400 border-4 border-black p-6 sm:p-10 comic-shadow flex flex-col items-center transform hover:-rotate-1 transition-transform">
             <div className="bg-white border-4 border-black p-3 sm:p-4 mb-6 shadow-black shadow-md group-hover:scale-105 transition-transform">
-                <img src="https://i.imgur.com/QTAePgC.jpeg" alt="LINE QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
+                <img src="[https://i.imgur.com/QTAePgC.jpeg](https://i.imgur.com/QTAePgC.jpeg)" alt="LINE QR" className="w-32 h-32 sm:w-48 sm:h-48 object-contain" />
             </div>
             <h3 className="text-xl sm:text-2xl font-black bg-white px-2 mb-2 tracking-tighter">台灣校務辦公室</h3>
             <p className="font-black text-lg sm:text-xl mb-6 bg-black text-white px-2 tracking-widest">+886 982 815 234</p>
-            <a href="https://line.me/R/ti/p/@+886982815234" target="_blank" rel="noopener noreferrer" className="w-full bg-[#06C755] border-4 border-black text-white py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-black text-center transition-colors uppercase">加 LINE 好友 !</a>
+            <a href="[https://line.me/R/ti/p/@+886982815234](https://line.me/R/ti/p/@+886982815234)" target="_blank" rel="noopener noreferrer" className="w-full bg-[#06C755] border-4 border-black text-white py-3 sm:py-4 font-black text-lg sm:text-xl hover:bg-black text-center transition-colors uppercase">加 LINE 好友 !</a>
           </div>
         </div>
       </div>
