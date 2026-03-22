@@ -39,7 +39,8 @@ export default function App() {
         .comic-bg { background-image: radial-gradient(rgba(0,0,0,0.1) 2px, transparent 2px); background-size: 24px 24px; }
         .comic-shadow { box-shadow: 10px 10px 0px 0px rgba(0,0,0,1); }
         .comic-border { border: 4px solid #000; }
-        .text-stroke { color: white; text-shadow: 5px 5px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+        /* 保持描邊樣式，但移除預設白色，改由 class 控制顏色 */
+        .text-stroke { text-shadow: 5px 5px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
         .halftone-bg { background-image: radial-gradient(rgba(0,0,0,0.15) 15%, transparent 16%); background-size: 8px 8px; }
         @media (max-width: 640px) { .text-stroke { text-shadow: 3px 3px 0 #000; } }
       `}</style>
@@ -92,7 +93,7 @@ function HeroSection() {
         <div className="inline-block bg-white border-4 border-black px-6 py-2 text-xl font-black mb-10 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-2">
           📢 <span className="text-red-600 underline">2026 NEWS:</span> 馬來西亞專區招生正式啟動
         </div>
-        <h1 className="text-6xl sm:text-8xl md:text-9xl font-black leading-tight text-stroke uppercase transform -rotate-1 mb-14 tracking-tighter">SPM 後的<br/><span className="text-yellow-400 italic">華麗轉身</span></h1>
+        <h1 className="text-6xl sm:text-8xl md:text-9xl font-black leading-tight text-stroke uppercase transform -rotate-1 mb-14 tracking-tighter text-white">SPM 後的<br/><span className="text-yellow-400 italic">華麗轉身</span></h1>
         <div className="bg-white border-4 border-black comic-shadow p-8 max-w-3xl mx-auto transform rotate-1 hover:rotate-0 transition-transform">
           <p className="text-xl sm:text-3xl font-black leading-relaxed text-black">
             台灣官方正式認證「3年高中+4年大學」計畫<br/>
@@ -122,7 +123,8 @@ function FinanceSection() {
   return (
     <section id="finance" className="py-24 border-b-8 border-black bg-white px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl sm:text-6xl font-black text-stroke text-center mb-16 transform -rotate-1 uppercase tracking-tighter">數據說話！為什麼選我們？</h2>
+        {/* 修正點 1：文字顏色改為黃色，增加對比度 */}
+        <h2 className="text-4xl sm:text-6xl font-black text-stroke text-center mb-16 transform -rotate-1 uppercase tracking-tighter text-yellow-400">數據說話！為什麼選我們？</h2>
         <div className="bg-slate-50 border-4 border-black p-6 sm:p-12 comic-shadow relative group">
           <Badge text="省錢首選!" color="bg-green-500" />
           <div className="h-80 w-full"><Bar options={options} data={data} /></div>
@@ -239,7 +241,8 @@ function TimelineSection() {
   return (
     <section id="timeline" className="py-24 border-b-8 border-black bg-white px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl sm:text-6xl font-black text-stroke mb-20 text-center uppercase transform rotate-1 tracking-tighter">2026 年度時程地圖</h2>
+        {/* 修正點 2：文字顏色改為黃色 */}
+        <h2 className="text-4xl sm:text-6xl font-black text-stroke mb-20 text-center uppercase transform rotate-1 tracking-tighter text-yellow-400">2026 年度時程地圖</h2>
         <div className="grid gap-6">
           {steps.map((step, i) => (
             <div key={i} className={`border-4 border-black comic-shadow transform transition-all ${active === i ? 'translate-x-4 rotate-1' : ''}`}>
@@ -265,7 +268,8 @@ function ContactSection() {
   return (
     <section id="contact" className="py-24 bg-cyan-400 border-b-8 border-black halftone-bg px-4 text-center">
       <div className="inline-block bg-white border-4 border-black p-8 comic-shadow mb-20 transform -rotate-1">
-        <h2 className="text-4xl sm:text-7xl font-black text-stroke uppercase tracking-tighter">聯繫駐地代表諮詢</h2>
+        {/* 修正點 3：文字顏色改為黃色 */}
+        <h2 className="text-4xl sm:text-7xl font-black text-stroke uppercase tracking-tighter text-yellow-400">聯繫駐地代表諮詢</h2>
         <p className="mt-4 font-black text-2xl text-black">夢想不等人，2026 年度名額有限！</p>
       </div>
       <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -279,7 +283,6 @@ function ContactSection() {
           <img src="https://i.imgur.com/QTAePgC.jpeg" alt="LINE" className="w-48 h-48 mx-auto border-8 border-black mb-8 bg-white group-hover:scale-105 transition-transform" />
           <h3 className="text-3xl font-black mb-2 text-black underline tracking-tight">台灣校務辦公室</h3>
           <p className="font-black bg-black text-white text-2xl inline-block px-4 py-1 mb-8 tracking-widest">+886 982 815 234</p>
-          {/* 正確的 LINE 電話號碼搜尋格式 */}
           <a href="https://line.me/ti/p/~+886982815234" target="_blank" rel="noopener noreferrer" className="block bg-[#06C755] text-white border-4 border-black py-4 font-black text-2xl hover:bg-black transition-all uppercase tracking-widest">加 LINE 好友 📱</a>
         </div>
       </div>
