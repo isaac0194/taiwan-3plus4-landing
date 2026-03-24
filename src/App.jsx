@@ -58,6 +58,7 @@ export default function App() {
       <FinanceSection />
       <FeaturesSection />
       <SchoolsSection />
+      <NewsSection />
       <TimelineSection />
       <ContactSection />
       <Footer />
@@ -76,6 +77,7 @@ function Navbar() {
         <div className="hidden lg:flex gap-8 text-sm uppercase text-black">
           <a href="#finance" className="hover:text-red-600 transition-colors">財務分析</a>
           <a href="#schools" className="hover:text-red-600 transition-colors">合作學校</a>
+          <a href="#news" className="hover:text-red-600 transition-colors">媒體報導</a>
           <a href="#timeline" className="hover:text-red-600 transition-colors">報名時程</a>
         </div>
         <a href="#contact" className="bg-red-600 text-white border-4 border-black px-6 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all active:scale-95 flex items-center justify-center">立即報名</a>
@@ -122,7 +124,6 @@ function FinanceSection() {
   return (
     <section id="finance" className="py-24 border-b-8 border-black bg-white px-4">
       <div className="max-w-4xl mx-auto text-center">
-        {/* 修正：亮黃色標題 */}
         <h2 className="text-4xl sm:text-6xl font-black text-stroke text-center mb-16 transform -rotate-1 uppercase tracking-tighter text-yellow-400">數據說話！為什麼選我們？</h2>
         <div className="bg-slate-50 border-4 border-black p-6 sm:p-12 comic-shadow relative group text-black">
           <Badge text="省錢首選!" color="bg-green-500" />
@@ -175,14 +176,55 @@ function SchoolsSection() {
               <div className={`h-32 ${s.color} border-b-4 border-black flex items-center justify-center text-7xl group-hover:scale-110 transition-transform`}>{s.emoji}</div>
               <div className="p-6 flex-grow">
                 <h3 className="font-black text-2xl mb-1 text-black underline decoration-4 tracking-tighter">{s.name}</h3>
-                <p className="font-bold text-sm text-slate-500 mb-6 flex items-center gap-1 italic">📍 基地位置: 台灣 {s.loc}</p>
+                <p className="font-bold text-sm text-slate-500 mb-6 flex items-center gap-1 italic text-black">📍 基地位置: 台灣 {s.loc}</p>
                 <div className="space-y-2 mb-4">
                   {s.majors.map((m, j) => (
-                    <span key={j} className="inline-block w-full text-center font-black bg-slate-100 border-2 border-black py-1 px-2 text-sm hover:bg-yellow-200 transition-colors tracking-widest">#{m}</span>
+                    <span key={j} className="inline-block w-full text-center font-black bg-slate-100 border-2 border-black py-1 px-2 text-sm hover:bg-yellow-200 transition-colors tracking-widest text-black">#{m}</span>
                   ))}
                 </div>
               </div>
               <a href={s.link} target="_blank" rel="noopener noreferrer" className="bg-black text-white text-center py-4 font-black uppercase text-sm hover:bg-red-600 transition-colors tracking-widest flex items-center justify-center">進入官網 ➔</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// --- 新增：媒體報導區塊 ---
+function NewsSection() {
+  const newsList = [
+    { 
+      title: "台南育德工家學生展現專業實力 勇奪「印前製程乙級」證照", 
+      source: "太平洋新聞網", 
+      link: "http://www.pacificnews.com.tw/shownews.php?postnewsid=17&titleid=3439",
+      color: "bg-blue-400"
+    },
+    { 
+      title: "育德工家推無人機訓練計畫搶進科技藍海", 
+      source: "LINE TODAY", 
+      link: "https://today.line.me/tw/v3/article/LXv03Jj?utm_source=lineshare",
+      color: "bg-red-400"
+    }
+  ];
+
+  return (
+    <section id="news" className="py-24 border-b-8 border-black bg-white px-4 relative">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl sm:text-6xl font-black text-stroke text-center mb-16 transform -rotate-1 uppercase tracking-tighter text-yellow-400">媒體報導新聞</h2>
+        <div className="grid md:grid-cols-2 gap-8 text-left text-black">
+          {newsList.map((item, i) => (
+            <div key={i} className="group relative">
+               <div className={`absolute inset-0 ${item.color} border-4 border-black comic-shadow transform rotate-1 group-hover:rotate-0 transition-transform`}></div>
+               <div className="relative bg-white border-4 border-black p-8 flex flex-col h-full transform -rotate-1 group-hover:rotate-0 transition-transform">
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="bg-black text-white px-3 py-1 text-xs font-black uppercase tracking-tighter">{item.source}</span>
+                    <span className="text-slate-400 text-xs font-black italic">VERIFIED</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-black leading-tight mb-6 flex-grow">{item.title}</h3>
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-block text-red-600 font-black text-lg hover:underline underline-offset-4">READ ARTICLE ➔</a>
+               </div>
             </div>
           ))}
         </div>
@@ -196,7 +238,7 @@ function TimelineSection() {
   const steps = [
     { date: "12 - 01月", title: "截止報名", tasks: "完成系統填寫，確認文件清晰無誤。", remind: "1月31日為截止日。SPM可先提預估成績。" },
     { date: "02月", title: "文件初審", tasks: "留意 Email 補件通知。檢查護照效期是否足夠。", remind: "定期檢查垃圾信箱避免錯過重要通知。" },
-    { date: "03月", title: "入學面試", tasks: "各校安排視訊或面試學員。展現學習意願。" },
+    { date: "03月", title: "入學面試", tasks: "各校安排視訊或面試學員學員。展現學習意願。" },
     { date: "04月", title: "資格複審", tasks: "官方進行最終學歷與身分審查。", remind: "此階段為後台作業，保持通訊暢通即可。" },
     { date: "05月", title: "錄取公告", tasks: "公佈錄取榜單並寄發錄取通知書袋。", remind: "錄取通知書是辦理簽證必備文件。" },
     { date: "06月", title: "學歷驗證", tasks: "辦理馬國外交部與 TECO 認證。", remind: "程序繁瑣，收到通知後建議即刻預約。" },
@@ -208,7 +250,6 @@ function TimelineSection() {
   return (
     <section id="timeline" className="py-24 border-b-8 border-black bg-white px-4 text-center">
       <div className="max-w-4xl mx-auto">
-        {/* 修正：亮黃色標題 */}
         <h2 className="text-4xl sm:text-6xl font-black text-stroke mb-20 uppercase transform rotate-1 tracking-tighter text-yellow-400">2026 年度時程地圖</h2>
         <div className="grid gap-6 text-left">
           {steps.map((step, i) => (
@@ -235,7 +276,6 @@ function ContactSection() {
   return (
     <section id="contact" className="py-24 bg-cyan-400 border-b-8 border-black halftone-bg px-4 text-center text-black">
       <div className="inline-block bg-white border-4 border-black p-8 comic-shadow mb-20 transform -rotate-1">
-        {/* 修正：亮黃色標題 */}
         <h2 className="text-4xl sm:text-7xl font-black text-stroke uppercase tracking-tighter text-yellow-400 text-black">聯繫駐地代表諮詢</h2>
         <p className="mt-4 font-black text-2xl">夢想不等人，2026 年度名額有限！</p>
       </div>
