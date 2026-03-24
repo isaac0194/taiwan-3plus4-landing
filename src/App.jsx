@@ -20,7 +20,7 @@ const IconChevron = ({ isOpen }) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3" className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}><path d="M19 9l-7 7-7-7" /></svg>
 );
 const Badge = ({ text, color = "bg-red-500" }) => (
-  <div className={`absolute -top-4 -right-4 ${color} text-white font-black px-3 py-1 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-6 z-10 text-sm animate-bounce`}>
+  <div className={`absolute -top-4 -right-4 ${color} text-white font-black px-3 py-1 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-6 z-10 text-sm animate-bounce uppercase`}>
     {text}
   </div>
 );
@@ -39,7 +39,6 @@ export default function App() {
         .comic-bg { background-image: radial-gradient(rgba(0,0,0,0.1) 2px, transparent 2px); background-size: 24px 24px; }
         .comic-shadow { box-shadow: 10px 10px 0px 0px rgba(0,0,0,1); }
         .comic-border { border: 4px solid #000; }
-        /* 保持描邊樣式，但移除預設白色，改由 class 控制顏色 */
         .text-stroke { text-shadow: 5px 5px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
         .halftone-bg { background-image: radial-gradient(rgba(0,0,0,0.15) 15%, transparent 16%); background-size: 8px 8px; }
         @media (max-width: 640px) { .text-stroke { text-shadow: 3px 3px 0 #000; } }
@@ -49,7 +48,7 @@ export default function App() {
       <HeroSection />
       
       {/* 動態資訊跑馬燈 */}
-      <div className="bg-black py-4 -rotate-1 scale-105 mb-24 overflow-hidden whitespace-nowrap border-y-4 border-white shadow-xl relative z-20">
+      <div className="bg-black py-4 -rotate-1 scale-105 mb-24 overflow-hidden whitespace-nowrap border-y-4 border-white shadow-xl relative z-20 font-black">
         <div className="text-yellow-400 font-black text-2xl tracking-widest inline-block animate-pulse">
            🔥 2026 年度入學申請中 • 高中三年學費全免 • 台灣 3+4 官方合作計畫 • 馬來西亞專區 • 
            🔥 2026 年度入學申請中 • 高中三年學費全免 • 台灣 3+4 官方合作計畫 • 馬來西亞專區 • 
@@ -59,6 +58,7 @@ export default function App() {
       <FinanceSection />
       <FeaturesSection />
       <SchoolsSection />
+      <NewsSection />
       <TimelineSection />
       <ContactSection />
       <Footer />
@@ -74,12 +74,13 @@ function Navbar() {
           <div className="bg-white border-4 border-black p-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-6"><IconZap /></div>
           <span className="text-2xl sm:text-3xl tracking-tighter italic uppercase">Taiwan 3+4</span>
         </div>
-        <div className="hidden lg:flex gap-8 text-sm uppercase">
+        <div className="hidden lg:flex gap-8 text-sm uppercase text-black">
           <a href="#finance" className="hover:text-red-600 transition-colors">財務分析</a>
           <a href="#schools" className="hover:text-red-600 transition-colors">合作學校</a>
+          <a href="#news" className="hover:text-red-600 transition-colors">媒體報導</a>
           <a href="#timeline" className="hover:text-red-600 transition-colors">報名時程</a>
         </div>
-        <a href="#contact" className="bg-red-600 text-white border-4 border-black px-6 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all active:scale-95">立即報名</a>
+        <a href="#contact" className="bg-red-600 text-white border-4 border-black px-6 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-all active:scale-95 text-center leading-none flex items-center justify-center">立即報名</a>
       </div>
     </nav>
   );
@@ -94,8 +95,8 @@ function HeroSection() {
           📢 <span className="text-red-600 underline">2026 NEWS:</span> 馬來西亞專區招生正式啟動
         </div>
         <h1 className="text-6xl sm:text-8xl md:text-9xl font-black leading-tight text-stroke uppercase transform -rotate-1 mb-14 tracking-tighter text-white">SPM 後的<br/><span className="text-yellow-400 italic">華麗轉身</span></h1>
-        <div className="bg-white border-4 border-black comic-shadow p-8 max-w-3xl mx-auto transform rotate-1 hover:rotate-0 transition-transform">
-          <p className="text-xl sm:text-3xl font-black leading-relaxed text-black">
+        <div className="bg-white border-4 border-black comic-shadow p-8 max-w-3xl mx-auto transform rotate-1 hover:rotate-0 transition-transform text-black">
+          <p className="text-xl sm:text-3xl font-black leading-relaxed">
             台灣官方正式認證「3年高中+4年大學」計畫<br/>
             <span className="bg-yellow-300 px-4 inline-block mt-4 border-4 border-black border-dashed italic">免學費、領津貼、拿正規大學學位！</span>
           </p>
@@ -122,14 +123,13 @@ function FinanceSection() {
   };
   return (
     <section id="finance" className="py-24 border-b-8 border-black bg-white px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* 修正點 1：文字顏色改為黃色，增加對比度 */}
-        <h2 className="text-4xl sm:text-6xl font-black text-stroke text-center mb-16 transform -rotate-1 uppercase tracking-tighter text-yellow-400">數據說話！為什麼選我們？</h2>
+      <div className="max-w-4xl mx-auto text-center text-black">
+        <h2 className="text-4xl sm:text-6xl font-black text-stroke text-center mb-16 transform -rotate-1 uppercase tracking-tighter text-yellow-400">財務分析</h2>
         <div className="bg-slate-50 border-4 border-black p-6 sm:p-12 comic-shadow relative group">
           <Badge text="省錢首選!" color="bg-green-500" />
           <div className="h-80 w-full"><Bar options={options} data={data} /></div>
           <div className="mt-10 p-6 bg-yellow-100 border-4 border-black border-dashed font-black text-lg text-center">
-             💡 實習津貼結餘：畢業後預計可帶回約 <span className="text-red-600 text-3xl">RM 45,000</span> 的啟動金！
+             💡 實習津貼結餘：畢業後預計可帶回約 <span className="text-red-600 text-3xl font-black">RM 45,000</span> 的啟動金！
           </div>
         </div>
       </div>
@@ -145,7 +145,7 @@ function FeaturesSection() {
   ];
   return (
     <section className="py-24 border-b-8 border-black bg-slate-50 px-4">
-      <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+      <div className="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center text-black">
         {features.map((f, i) => (
           <div key={i} className={`${f.color} border-4 border-black p-10 comic-shadow transform hover:-translate-y-4 transition-transform`}>
             <div className="bg-white border-4 border-black w-20 h-20 flex items-center justify-center mb-6 comic-shadow rounded-full text-4xl mx-auto">{f.icon}</div>
@@ -160,62 +160,61 @@ function FeaturesSection() {
 
 function SchoolsSection() {
   const schools = [
-    { 
-      name: "六信高中", 
-      loc: "台南", 
-      majors: ["資訊科", "烘焙科"], 
-      color: "bg-red-400", 
-      emoji: "🤖", 
-      badge: "百年名校",
-      link: "https://www.lhvs.tn.edu.tw/index.php?option=module&lang=cht&task=showlist&id=105&index=5"
-    },
-    { 
-      name: "新光高中", 
-      loc: "高雄", 
-      majors: ["資訊科"], 
-      color: "bg-blue-400", 
-      emoji: "💻", 
-      badge: "設備新穎",
-      link: "https://sg.sgshedu.tw/"
-    },
-    { 
-      name: "育德工家", 
-      loc: "台南", 
-      majors: ["烘焙科", "餐飲科"], 
-      color: "bg-green-400", 
-      emoji: "🍞", 
-      badge: "就業保證",
-      link: "https://sites.google.com/ytvs.tn.edu.tw/ytvs204c"
-    },
-    { 
-      name: "華德工家", 
-      loc: "高雄", 
-      majors: ["資訊科", "烘焙科", "餐飲科"], 
-      color: "bg-purple-400", 
-      emoji: "👨‍🍳", 
-      badge: "照顧第一",
-      link: "https://www.hdvs.kh.edu.tw/?.p=Hrpp"
-    }
+    { name: "六信高中", loc: "台南", majors: ["資訊科", "烘焙科"], color: "bg-red-400", emoji: "🤖", badge: "百年名校", link: "https://www.lhvs.tn.edu.tw/index.php?option=module&lang=cht&task=showlist&id=105&index=5" },
+    { name: "新光高中", loc: "高雄", majors: ["資訊科"], color: "bg-blue-400", emoji: "💻", badge: "設備新穎", link: "https://sg.sgshedu.tw/" },
+    { name: "育德工家", loc: "台南", majors: ["烘焙科", "餐飲科"], color: "bg-green-400", emoji: "🍞", badge: "就業保證", link: "https://sites.google.com/ytvs.tn.edu.tw/ytvs204c" },
+    { name: "華德工家", loc: "高雄", majors: ["資訊科", "烘焙科", "餐飲科"], color: "bg-purple-400", emoji: "👨‍🍳", badge: "照顧第一", link: "https://www.hdvs.kh.edu.tw/?.p=Hrpp" }
   ];
   return (
-    <section id="schools" className="py-24 bg-yellow-300 border-b-8 border-black px-4 relative halftone-bg">
+    <section id="schools" className="py-24 bg-yellow-300 border-b-8 border-black px-4 relative halftone-bg text-black">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl sm:text-6xl font-black bg-black text-white border-4 border-white inline-block px-8 py-4 comic-shadow transform rotate-1 uppercase mb-20 tracking-tighter">精選名校探索</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 text-black">
           {schools.map((s, i) => (
             <div key={i} className="bg-white border-4 border-black comic-shadow flex flex-col h-full transform hover:-translate-y-4 hover:rotate-1 transition-all relative group">
               <Badge text={s.badge} color={s.color} />
               <div className={`h-32 ${s.color} border-b-4 border-black flex items-center justify-center text-7xl group-hover:scale-110 transition-transform`}>{s.emoji}</div>
               <div className="p-6 flex-grow">
                 <h3 className="font-black text-2xl mb-1 text-black underline decoration-4 tracking-tighter">{s.name}</h3>
-                <p className="font-bold text-sm text-slate-500 mb-6 flex items-center gap-1 italic">📍 基地位置: 台灣 {s.loc}</p>
+                <p className="font-bold text-sm text-slate-500 mb-6 flex items-center gap-1 italic text-black">📍 基地位置: 台灣 {s.loc}</p>
                 <div className="space-y-2 mb-4">
                   {s.majors.map((m, j) => (
-                    <span key={j} className="inline-block w-full text-center font-black bg-slate-100 border-2 border-black py-1 px-2 text-sm hover:bg-yellow-200 transition-colors tracking-widest">#{m}</span>
+                    <span key={j} className="inline-block w-full text-center font-black bg-slate-100 border-2 border-black py-1 px-2 text-sm hover:bg-yellow-200 transition-colors tracking-widest text-black">#{m}</span>
                   ))}
                 </div>
               </div>
               <a href={s.link} target="_blank" rel="noopener noreferrer" className="bg-black text-white text-center py-4 font-black uppercase text-sm hover:bg-red-600 transition-colors tracking-widest">進入官網 ➔</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// --- 媒體報導區塊 (已移除下方兩則新聞) ---
+function NewsSection() {
+  const newsList = [
+    { title: "台南育德工家學生展現專業實力 勇奪「印前製程乙級」證照", source: "太平洋新聞網", link: "http://www.pacificnews.com.tw/shownews.php?postnewsid=17&titleid=3439", color: "bg-blue-400" },
+    { title: "搶進科技藍海　育德工家推動無人機訓練計畫", source: "華博新聞網", link: "https://www.hbnews.com.tw/Report/News/10a04e0m405l", color: "bg-red-400" }
+  ];
+
+  return (
+    <section id="news" className="py-24 border-b-8 border-black bg-white px-4 relative">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl sm:text-6xl font-black text-stroke text-center mb-16 transform -rotate-1 uppercase tracking-tighter text-yellow-400">媒體報導新聞</h2>
+        <div className="grid md:grid-cols-2 gap-8 text-left text-black">
+          {newsList.map((item, i) => (
+            <div key={i} className="group relative">
+               <div className={`absolute inset-0 ${item.color} border-4 border-black comic-shadow transform rotate-1 group-hover:rotate-0 transition-transform`}></div>
+               <div className="relative bg-white border-4 border-black p-8 flex flex-col h-full transform -rotate-1 group-hover:rotate-0 transition-transform">
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="bg-black text-white px-3 py-1 text-xs font-black uppercase tracking-tighter">{item.source}</span>
+                    <span className="text-slate-400 text-xs font-black italic">VERIFIED</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-black leading-tight mb-6 flex-grow">{item.title}</h3>
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-block text-red-600 font-black text-lg hover:underline underline-offset-4">READ ARTICLE ➔</a>
+               </div>
             </div>
           ))}
         </div>
@@ -229,25 +228,24 @@ function TimelineSection() {
   const steps = [
     { date: "12 - 01月", title: "截止報名", tasks: "完成系統填寫，確認文件清晰無誤。", remind: "1月31日為截止日。SPM可先提預估成績。" },
     { date: "02月", title: "文件初審", tasks: "留意 Email 補件通知。檢查護照效期是否足夠。", remind: "定期檢查垃圾信箱避免錯過重要通知。" },
-    { date: "03月", title: "入學面試", tasks: "各校安排視訊或面試。展現學習意願與潛力。", remind: "穿著整齊校服或正裝展現態度。" },
+    { date: "03月", title: "入學面試", tasks: "各校安排視訊或面試學員。展現學習意願。", remind: "穿著整齊校服或正裝展現態度。" },
     { date: "04月", title: "資格複審", tasks: "官方進行最終學歷與身分審查。", remind: "此階段為後台作業，保持通訊暢通即可。" },
-    { date: "05月", title: "錄取公告", tasks: "公佈榜單並寄發錄取通知書袋。", remind: "錄取通知書是辦理簽證的必備文件。" },
-    { date: "06月", title: "學歷驗證", tasks: "辦理馬國外交部與 TECO 認證。", remind: "程序較繁瑣，收到通知後建議即刻預約。" },
+    { date: "05月", title: "錄取公告", tasks: "公佈錄取榜單並寄發錄取通知書袋。", remind: "錄取通知書是辦理簽證必備文件。" },
+    { date: "06月", title: "學歷驗證", tasks: "辦理馬國外交部與 TECO 認證。", remind: "程序繁瑣，收到通知後建議即刻預約。" },
     { date: "07月", title: "簽證打包", tasks: "申請居留簽證。依照批次訂購機票。", remind: "打包清單包含常備藥、面試服與家鄉零食。" },
     { date: "08月", title: "赴台啟航", tasks: "8月中下旬抵台。參與新生生活輔導週。", remind: "正式告別家人，迎接獨立生活新篇章。" },
     { date: "09月", title: "正式開學", tasks: "進入高職學習。開始技能訓練與實務實習。", remind: "建立正確的工作倫理與學習態度。" }
   ];
 
   return (
-    <section id="timeline" className="py-24 border-b-8 border-black bg-white px-4">
+    <section id="timeline" className="py-24 border-b-8 border-black bg-white px-4 text-center">
       <div className="max-w-4xl mx-auto">
-        {/* 修正點 2：文字顏色改為黃色 */}
-        <h2 className="text-4xl sm:text-6xl font-black text-stroke mb-20 text-center uppercase transform rotate-1 tracking-tighter text-yellow-400">2026 年度時程地圖</h2>
-        <div className="grid gap-6">
+        <h2 className="text-4xl sm:text-6xl font-black text-stroke mb-20 uppercase transform rotate-1 tracking-tighter text-yellow-400">2026 年度時程地圖</h2>
+        <div className="grid gap-6 text-left">
           {steps.map((step, i) => (
             <div key={i} className={`border-4 border-black comic-shadow transform transition-all ${active === i ? 'translate-x-4 rotate-1' : ''}`}>
-              <button onClick={() => setActive(i)} className={`w-full flex items-center justify-between p-6 text-left font-black text-xl sm:text-2xl outline-none ${active === i ? 'bg-purple-600 text-white' : 'bg-white hover:bg-slate-50'}`}>
-                <span className="flex items-center gap-4"><span className="bg-black text-white px-4 py-1 transform -skew-x-12 uppercase">{step.date}</span> {step.title}</span>
+              <button onClick={() => setActive(i)} className={`w-full flex items-center justify-between p-6 text-left font-black text-xl sm:text-2xl outline-none ${active === i ? 'bg-purple-600 text-white' : 'bg-white hover:bg-slate-50 text-black'}`}>
+                <span className="flex items-center gap-4"><span className="bg-black text-white px-4 py-1 transform -skew-x-12 uppercase font-black">{step.date}</span> {step.title}</span>
                 <IconChevron isOpen={active === i} />
               </button>
               {active === i && (
@@ -266,24 +264,23 @@ function TimelineSection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className="py-24 bg-cyan-400 border-b-8 border-black halftone-bg px-4 text-center">
+    <section id="contact" className="py-24 bg-cyan-400 border-b-8 border-black halftone-bg px-4 text-center text-black">
       <div className="inline-block bg-white border-4 border-black p-8 comic-shadow mb-20 transform -rotate-1">
-        {/* 修正點 3：文字顏色改為黃色 */}
-        <h2 className="text-4xl sm:text-7xl font-black text-stroke uppercase tracking-tighter text-yellow-400">聯繫駐地代表諮詢</h2>
+        <h2 className="text-4xl sm:text-7xl font-black text-stroke uppercase tracking-tighter text-yellow-400 text-black">聯繫駐地代表諮詢</h2>
         <p className="mt-4 font-black text-2xl text-black">夢想不等人，2026 年度名額有限！</p>
       </div>
       <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        <div className="bg-green-400 border-4 border-black p-10 comic-shadow transform hover:rotate-2 transition-transform group">
+        <div className="bg-green-400 border-4 border-black p-10 comic-shadow transform hover:rotate-2 transition-transform group text-black">
           <img src="https://i.imgur.com/YdXztNr.png" alt="WhatsApp" className="w-48 h-48 mx-auto border-8 border-black mb-8 bg-white group-hover:scale-105 transition-transform" />
-          <h3 className="text-3xl font-black mb-2 text-black underline tracking-tight">馬來西亞代表</h3>
+          <h3 className="text-3xl font-black mb-2 text-black underline tracking-tight italic">馬來西亞代表</h3>
           <p className="font-black bg-black text-white text-2xl inline-block px-4 py-1 mb-8 tracking-widest">+63 998 919 5808</p>
-          <a href="https://wa.me/639989195808" className="block bg-white border-4 border-black py-4 font-black text-2xl hover:bg-yellow-400 transition-all uppercase">WhatsApp 直接對話</a>
+          <a href="https://wa.me/639989195808" target="_blank" className="block bg-white border-4 border-black py-4 font-black text-2xl hover:bg-yellow-400 transition-all uppercase text-black flex items-center justify-center">WhatsApp 直接對話</a>
         </div>
-        <div className="bg-blue-400 border-4 border-black p-10 comic-shadow transform hover:-rotate-2 transition-transform group">
+        <div className="bg-blue-400 border-4 border-black p-10 comic-shadow transform hover:-rotate-2 transition-transform group text-black">
           <img src="https://i.imgur.com/QTAePgC.jpeg" alt="LINE" className="w-48 h-48 mx-auto border-8 border-black mb-8 bg-white group-hover:scale-105 transition-transform" />
-          <h3 className="text-3xl font-black mb-2 text-black underline tracking-tight">台灣校務辦公室</h3>
+          <h3 className="text-3xl font-black mb-2 text-black underline tracking-tight italic">台灣校務辦公室</h3>
           <p className="font-black bg-black text-white text-2xl inline-block px-4 py-1 mb-8 tracking-widest">+886 982 815 234</p>
-          <a href="https://line.me/ti/p/~+886982815234" target="_blank" rel="noopener noreferrer" className="block bg-[#06C755] text-white border-4 border-black py-4 font-black text-2xl hover:bg-black transition-all uppercase tracking-widest">加 LINE 好友 📱</a>
+          <a href="https://line.me/ti/p/~+886982815234" target="_blank" rel="noopener noreferrer" className="block bg-[#06C755] text-white border-4 border-black py-4 font-black text-2xl hover:bg-black transition-all uppercase tracking-widest flex items-center justify-center">加 LINE 好友 📱</a>
         </div>
       </div>
     </section>
