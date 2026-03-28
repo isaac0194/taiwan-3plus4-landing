@@ -25,17 +25,6 @@ export default function App() {
       className="min-h-screen text-black bg-[#fdfdfd] overflow-x-hidden selection:bg-yellow-300"
       style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
     >
-      <style>{`
-        .comic-bg { background-image: radial-gradient(rgba(0,0,0,0.1) 2px, transparent 2px); background-size: 24px 24px; }
-        .comic-shadow { box-shadow: 10px 10px 0px 0px rgba(0,0,0,1); }
-        .comic-border { border: 4px solid #000; }
-        .text-stroke { text-shadow: 5px 5px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
-        .halftone-bg { background-image: radial-gradient(rgba(0,0,0,0.15) 15%, transparent 16%); background-size: 8px 8px; }
-        @media (max-width: 640px) { .text-stroke { text-shadow: 3px 3px 0 #000; } }
-        /* 鍵盤 focus 視覺指示 */
-        :focus-visible { outline: 3px solid #000; outline-offset: 2px; }
-      `}</style>
-
       {/* 鍵盤使用者跳過導航 */}
       <a
         href="#main-content"
