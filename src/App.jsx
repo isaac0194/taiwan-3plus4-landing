@@ -78,10 +78,10 @@ export default function App() {
 
       <a
         href="#"
-        className="fixed bottom-5 right-5 z-[120] h-16 w-16 rounded-full bg-yellow-300/75 backdrop-blur-sm text-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.45)] hover:-translate-y-1 hover:bg-yellow-300/90 transition-all focus:outline-none focus:ring-4 focus:ring-black flex items-center justify-center"
+        className="fixed bottom-5 right-5 z-[120] h-16 w-16 rounded-full bg-yellow-300/75 backdrop-blur-sm text-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.45)] hover:-translate-y-1 hover:bg-red-500 hover:text-white transition-all focus:outline-none focus:ring-4 focus:ring-black flex items-center justify-center"
         aria-label="回首頁"
       >
-        <span className="font-black text-sm leading-none">首頁</span>
+        <span className="font-black text-sm leading-none">回首頁</span>
       </a>
     </div>
   );
