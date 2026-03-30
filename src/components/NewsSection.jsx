@@ -17,7 +17,7 @@ const newsList = [
 
 export default function NewsSection() {
   return (
-    <section id="news" className="py-24 border-b-8 border-black bg-white px-4 relative" aria-labelledby="news-heading">
+    <section id="news" className="py-24 border-b-8 border-black bg-[#dceaf8] px-4 relative halftone-bg" aria-labelledby="news-heading">
       <div className="max-w-4xl mx-auto text-center">
         <FadeInUp>
           <h2
