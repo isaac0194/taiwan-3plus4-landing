@@ -2,16 +2,12 @@ import { useState } from "react";
 import SchoolModal from "./SchoolModal";
 import { FadeInUp as AnimatedSection } from "./AnimatedSection";
 import { Badge } from "./shared";
-import lhvsLogo from "../assets/lhvs.png";
-import sghsLogo from "../assets/sghs.png";
-import ytvsLogo from "../assets/ytvs.png";
-import hdvsLogo from "../assets/hdvs.png";
 
 const LOGOS = {
-  lhvs: lhvsLogo,
-  sghs: sghsLogo,
-  ytvs: ytvsLogo,
-  hdvs: hdvsLogo,
+  lhvs: "/logos/lhvs.png",
+  sghs: "/logos/sghs.png",
+  ytvs: "/logos/ytvs.png",
+  hdvs: "/logos/hdvs.png",
 };
 
 const schools = [
@@ -23,11 +19,7 @@ const schools = [
     logo: LOGOS.lhvs,
     badge: "南台灣口碑",
     link: "https://www.lhvs.tn.edu.tw/",
-    highlights: [
-      "全額補助學費",
-      "住宿補貼",
-      "就業保障",
-    ],
+    highlights: ["全額補助學費", "住宿補貼", "就業保障"],
   },
   {
     name: "新光高中",
@@ -37,11 +29,7 @@ const schools = [
     logo: LOGOS.sghs,
     badge: "住宿全免",
     link: "https://sg.sgshedu.tw/",
-    highlights: [
-      "住宿費全免",
-      "企業實習",
-      "技術認證",
-    ],
+    highlights: ["住宿費全免", "企業實習", "技術認證"],
   },
   {
     name: "育德工家",
@@ -51,11 +39,7 @@ const schools = [
     logo: LOGOS.ytvs,
     badge: "直升名校",
     link: "https://ytvs.tn.edu.tw/",
-    highlights: [
-      "直升科大",
-      "國際交流",
-      "雙師制度",
-    ],
+    highlights: ["直升科大", "國際交流", "雙師制度"],
   },
   {
     name: "華德工家",
@@ -65,11 +49,7 @@ const schools = [
     logo: LOGOS.hdvs,
     badge: "設施最完善",
     link: "https://www.hdvs.kh.edu.tw/",
-    highlights: [
-      "頂尖設備",
-      "多元科系",
-      "產業合作",
-    ],
+    highlights: ["頂尖設備", "多元科系", "產業合作"],
   },
 ];
 
@@ -90,7 +70,6 @@ export default function SchoolsSection() {
           >
             精選名校探索
           </h2>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 text-black">
             {schools.map((s) => (
               <article
@@ -115,15 +94,10 @@ export default function SchoolsSection() {
                 </div>
                 <div className="p-6 flex-grow">
                   <h3 className="font-black text-2xl mb-1 text-black underline decoration-4 tracking-tighter">{s.name}</h3>
-                  <p className="font-bold text-sm mb-6 flex items-center gap-1 italic text-black">
-                    基地位置: 台灣 {s.loc}
-                  </p>
+                  <p className="font-bold text-sm mb-6 italic text-black">台灣 {s.loc}</p>
                   <ul className="space-y-2 mb-4" aria-label={`${s.name} 科系`}>
                     {s.majors.map((m) => (
-                      <li
-                        key={m}
-                        className="bg-black text-white px-3 py-1 font-bold text-sm inline-block mr-2 mb-1"
-                      >
+                      <li key={m} className="bg-black text-white px-3 py-1 font-bold text-sm inline-block mr-2 mb-1">
                         #{m}
                       </li>
                     ))}
@@ -131,7 +105,7 @@ export default function SchoolsSection() {
                 </div>
                 <div className="p-4 border-t-4 border-black">
                   <span className="font-black text-sm flex items-center gap-1 group-hover:gap-3 transition-all">
-                    查看學校亮點 <span aria-hidden="true">→</span>
+                    查看學校亮點 →
                   </span>
                 </div>
               </article>
