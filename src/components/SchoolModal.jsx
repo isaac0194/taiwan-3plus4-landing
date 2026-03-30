@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+                import { useEffect } from 'react';
 
 export default function SchoolModal({ school, onClose }) {
   // ESC 關閉
