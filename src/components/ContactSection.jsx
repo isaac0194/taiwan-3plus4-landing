@@ -1,6 +1,6 @@
 import { FadeInUp, PopIn } from './AnimatedSection';
 
-export default function ContactSection() {
+export default function ContactSection() { 
   return (
     <section
       id="contact"
