@@ -42,7 +42,6 @@ export default function App() {
         <div
           className="bg-black py-4 -rotate-1 scale-105 mb-24 overflow-hidden whitespace-nowrap border-y-4 border-white shadow-xl relative z-20 font-black"
           aria-label="最新消息跑馬燈"
-          role="marquee"
         >
           <div className="text-yellow-400 font-black text-2xl tracking-widest inline-block animate-pulse" aria-hidden="true">
             🔥 2026 年度入學申請中 • 高中三年學費全免 • 台灣 3+4 官方合作計畫 • 馬來西亞專區 •{' '}

@@ -2,12 +2,16 @@ import { useState } from "react";
 import SchoolModal from "./SchoolModal";
 import { FadeInUp as AnimatedSection } from "./AnimatedSection";
 import { Badge } from "./shared";
+import lhvsLogo from "../assets/lhvs.png";
+import sghsLogo from "../assets/sghs.png";
+import ytvsLogo from "../assets/ytvs.png";
+import hdvsLogo from "../assets/hdvs.png";
 
 const LOGOS = {
-  lhvs: "/logos/lhvs.png",
-  sghs: "/logos/sghs.png",
-  ytvs: "/logos/ytvs.png",
-  hdvs: "/logos/hdvs.png",
+  lhvs: lhvsLogo,
+  sghs: sghsLogo,
+  ytvs: ytvsLogo,
+  hdvs: hdvsLogo,
 };
 
 const schools = [
@@ -56,6 +60,15 @@ const schools = [
 export default function SchoolsSection() {
   const [selectedSchool, setSelectedSchool] = useState(null);
 
+  const openSchoolModal = (school) => setSelectedSchool(school);
+
+  const handleCardKeyDown = (event, school) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openSchoolModal(school);
+    }
+  };
+
   return (
     <AnimatedSection>
       <section
@@ -75,11 +88,12 @@ export default function SchoolsSection() {
               <article
                 key={s.name}
                 className="bg-white border-4 border-black comic-shadow flex flex-col h-full transform hover:-translate-y-4 hover:rotate-1 transition-all relative cursor-pointer group"
-                onClick={() => setSelectedSchool(s)}
+                onClick={() => openSchoolModal(s)}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => e.key === "Enter" && setSelectedSchool(s)}
+                onKeyDown={(event) => handleCardKeyDown(event, s)}
                 aria-label={`查看 ${s.name} 詳細資訊`}
+                aria-haspopup="dialog"
               >
                 <Badge text={s.badge} color={s.color} />
                 <div

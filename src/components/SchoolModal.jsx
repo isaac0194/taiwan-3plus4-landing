@@ -1,14 +1,21 @@
-                import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function SchoolModal({ school, onClose }) {
+  const closeButtonRef = useRef(null);
+  const previouslyFocusedElementRef = useRef(null);
+
   // ESC 關閉
   useEffect(() => {
+    previouslyFocusedElementRef.current = document.activeElement;
     const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', handleKey);
     document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
+
     return () => {
       document.removeEventListener('keydown', handleKey);
       document.body.style.overflow = '';
+      previouslyFocusedElementRef.current?.focus?.();
     };
   }, [onClose]);
 
@@ -42,6 +49,7 @@ export default function SchoolModal({ school, onClose }) {
             </div>
           </div>
           <button
+            ref={closeButtonRef}
             onClick={onClose}
             className="bg-black text-white w-10 h-10 flex items-center justify-center font-black text-xl hover:bg-red-600 transition-colors focus:outline-none focus:ring-4 focus:ring-white"
             aria-label="關閉彈窗"
@@ -68,8 +76,8 @@ export default function SchoolModal({ school, onClose }) {
           <ul className="space-y-3">
             {school.highlights.map((h, i) => (
               <li key={i} className="flex items-start gap-3 font-bold text-base leading-relaxed">
-                <span className="text-xl mt-0.5" aria-hidden="true">{h.icon}</span>
-                <span>{h.text}</span>
+                <span className="text-xl mt-0.5" aria-hidden="true">•</span>
+                <span>{h}</span>
               </li>
             ))}
           </ul>
