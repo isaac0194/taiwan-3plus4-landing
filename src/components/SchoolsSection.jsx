@@ -140,8 +140,8 @@ export default function SchoolsSection() {
                     ))}
                   </ul>
                 </div>
-                <div className="p-0 border-t-4 border-black bg-black">
-                  <div className="px-4 py-5 text-center text-white font-black tracking-wide">
+                <div className="p-0 border-t-4 border-black bg-black transition-colors group-hover:bg-red-500">
+                  <div className="px-4 py-5 text-center text-white font-black tracking-wide transition-colors">
                     <span className="flex items-center justify-center gap-2 text-lg group-hover:gap-4 transition-all">
                       查看學校亮點
                       <span aria-hidden="true">✦</span>
