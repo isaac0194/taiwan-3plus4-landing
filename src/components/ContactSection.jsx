@@ -64,7 +64,7 @@ export default function ContactSection() {
               className="block bg-[#06C755] text-white border-4 border-black py-4 font-black text-2xl hover:bg-black transition-all uppercase tracking-widest flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-black"
               aria-label="透過 LINE 聯繫台灣校務辦公室（新視窗開啟）"
             >
-              加 LINE 好友 <span aria-hidden="true">📱</span>
+              加 LINE 好友
             </a>
           </div>
         </PopIn>
