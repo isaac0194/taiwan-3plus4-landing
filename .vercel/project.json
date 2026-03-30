@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_tIJwxwonSv4CiLfxNTVpGRDN3Kqm",
+  "orgId": "team_LNM41tboKXRlAOIIwXtpi9LH",
+  "projectName": "taiwan-3plus4-landing",
+  "settings": {
+    "createdAt": 1773391585725,
+    "framework": "vite",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}
