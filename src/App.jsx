@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import FeaturesSection from './components/FeaturesSection';
 import Footer from './components/Footer';
-import { IconHomeTop } from './components/shared';
 
 // Lazy load 非首屏元件，減少初始 bundle 大小
 const FinanceSection = lazy(() => import('./components/FinanceSection'));
@@ -79,13 +78,10 @@ export default function App() {
 
       <a
         href="#"
-        className="fixed bottom-5 right-5 z-[120] bg-yellow-300/75 backdrop-blur-sm text-black border-2 border-black px-3 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.55)] hover:-translate-y-1 hover:bg-yellow-300/90 transition-all focus:outline-none focus:ring-4 focus:ring-black flex items-center gap-2"
+        className="fixed bottom-5 right-5 z-[120] h-16 w-16 rounded-full bg-yellow-300/75 backdrop-blur-sm text-black border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.45)] hover:-translate-y-1 hover:bg-yellow-300/90 transition-all focus:outline-none focus:ring-4 focus:ring-black flex items-center justify-center"
         aria-label="回首頁"
       >
-        <span className="bg-white/80 border-2 border-black p-1.5">
-          <IconHomeTop />
-        </span>
-        <span className="font-black text-sm uppercase leading-none">回首頁</span>
+        <span className="font-black text-sm leading-none">首頁</span>
       </a>
     </div>
   );
