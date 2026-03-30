@@ -2,12 +2,16 @@ import { useState } from "react";
 import SchoolModal from "./SchoolModal";
 import { FadeInUp as AnimatedSection } from "./AnimatedSection";
 import { Badge } from "./shared";
+import lhvsLogo from "../assets/lhvs.png";
+import sghsLogo from "../assets/sghs.png";
+import ytvsLogo from "../assets/ytvs.png";
+import hdvsLogo from "../assets/hdvs.png";
 
 const LOGOS = {
-  lhvs: "/logos/lhvs.png",
-  sghs: "/logos/sghs.png",
-  ytvs: "/logos/ytvs.png",
-  hdvs: "/logos/hdvs.png",
+  lhvs: lhvsLogo,
+  sghs: sghsLogo,
+  ytvs: ytvsLogo,
+  hdvs: hdvsLogo,
 };
 
 const schools = [
