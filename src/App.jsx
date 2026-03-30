@@ -79,13 +79,13 @@ export default function App() {
 
       <a
         href="#"
-        className="fixed bottom-6 right-6 z-[120] bg-yellow-400 text-black border-4 border-black px-4 py-3 comic-shadow hover:-translate-y-1 transition-all focus:outline-none focus:ring-4 focus:ring-black flex items-center gap-3"
+        className="fixed bottom-5 right-5 z-[120] bg-yellow-300/75 backdrop-blur-sm text-black border-2 border-black px-3 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.55)] hover:-translate-y-1 hover:bg-yellow-300/90 transition-all focus:outline-none focus:ring-4 focus:ring-black flex items-center gap-2"
         aria-label="回首頁"
       >
-        <span className="bg-white border-2 border-black p-2">
+        <span className="bg-white/80 border-2 border-black p-1.5">
           <IconHomeTop />
         </span>
-        <span className="font-black text-base uppercase leading-none">回首頁</span>
+        <span className="font-black text-sm uppercase leading-none">回首頁</span>
       </a>
     </div>
   );
