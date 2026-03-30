@@ -20,6 +20,7 @@ const schools = [
     loc: "台南市",
     majors: ["電機科", "機械科", "冷凍空調科"],
     color: "bg-red-400",
+    panelColor: "bg-cyan-300",
     logo: LOGOS.lhvs,
     badge: "南台灣口碑",
     link: "https://www.lhvs.tn.edu.tw/",
@@ -30,6 +31,7 @@ const schools = [
     loc: "高雄市",
     majors: ["電機科", "資訊科", "冷凍空調科"],
     color: "bg-blue-400",
+    panelColor: "bg-slate-200",
     logo: LOGOS.sghs,
     badge: "住宿全免",
     link: "https://sg.sgshedu.tw/",
@@ -40,6 +42,7 @@ const schools = [
     loc: "台南市",
     majors: ["烘焙科", "餐飲科"],
     color: "bg-green-400",
+    panelColor: "bg-lime-200",
     logo: LOGOS.ytvs,
     badge: "直升名校",
     link: "https://ytvs.tn.edu.tw/",
@@ -50,6 +53,7 @@ const schools = [
     loc: "高雄市",
     majors: ["資訊科", "電機科", "餐飲科", "美容科"],
     color: "bg-purple-400",
+    panelColor: "bg-violet-200",
     logo: LOGOS.hdvs,
     badge: "設施最完善",
     link: "https://www.hdvs.kh.edu.tw/",
@@ -97,13 +101,13 @@ export default function SchoolsSection() {
               >
                 <Badge text={s.badge} color={s.color} />
                 <div
-                  className={`h-32 ${s.color} border-b-4 border-black flex items-center justify-center group-hover:scale-110 transition-transform`}
+                  className={`h-32 ${s.panelColor} border-b-4 border-black flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110`}
                   aria-hidden="true"
                 >
                   <img
                     src={s.logo}
                     alt={`${s.name}校徽`}
-                    className="h-20 w-20 object-contain drop-shadow-md"
+                    className="h-24 w-24 object-contain drop-shadow-[0_4px_0_rgba(0,0,0,0.28)]"
                   />
                 </div>
                 <div className="p-6 flex-grow">

@@ -36,12 +36,12 @@ export default function SchoolModal({ school, onClose }) {
       {/* Modal 主體 */}
       <div className="relative bg-white border-4 border-black comic-shadow max-w-lg w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className={`${school.color} border-b-4 border-black p-6 flex items-center justify-between`}>
+        <div className={`${school.panelColor ?? school.color} border-b-4 border-black p-6 flex items-center justify-between`}>
           <div className="flex items-center gap-4">
             <img
               src={school.logo}
               alt={`${school.name}校徽`}
-              className="w-16 h-16 object-contain bg-white border-2 border-black/20 rounded"
+              className="w-16 h-16 object-contain drop-shadow-[0_3px_0_rgba(0,0,0,0.22)]"
             />
             <div>
               <h2 id="modal-title" className="text-3xl font-black text-black tracking-tight">{school.name}</h2>
