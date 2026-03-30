@@ -20,9 +20,9 @@ const schools = [
     badge: "南台灣口碑",
     link: "https://www.lhvs.tn.edu.tw/",
     highlights: [
-      { icon: "💰", text: "全額補助學費" },
-      { icon: "🏠", text: "住宿補貼" },
-      { icon: "💼", text: "就業保障" },
+      "全額補助學費",
+      "住宿補貼",
+      "就業保障",
     ],
   },
   {
@@ -34,9 +34,9 @@ const schools = [
     badge: "住宿全免",
     link: "https://sg.sgshedu.tw/",
     highlights: [
-      { icon: "🏠", text: "住宿費全免" },
-      { icon: "🏭", text: "企業實習" },
-      { icon: "📜", text: "技術認證" },
+      "住宿費全免",
+      "企業實習",
+      "技術認證",
     ],
   },
   {
@@ -48,9 +48,9 @@ const schools = [
     badge: "直升名校",
     link: "https://ytvs.tn.edu.tw/",
     highlights: [
-      { icon: "🎓", text: "直升科大" },
-      { icon: "🌏", text: "國際交流" },
-      { icon: "👨‍🏫", text: "雙師制度" },
+      "直升科大",
+      "國際交流",
+      "雙師制度",
     ],
   },
   {
@@ -62,9 +62,9 @@ const schools = [
     badge: "設施最完善",
     link: "https://www.hdvs.kh.edu.tw/",
     highlights: [
-      { icon: "🔧", text: "頂尖設備" },
-      { icon: "📚", text: "多元科系" },
-      { icon: "🤝", text: "產業合作" },
+      "頂尖設備",
+      "多元科系",
+      "產業合作",
     ],
   },
 ];
