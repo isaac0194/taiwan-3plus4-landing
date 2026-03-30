@@ -31,7 +31,11 @@ export default function SchoolModal({ school, onClose }) {
         {/* Header */}
         <div className={`${school.color} border-b-4 border-black p-6 flex items-center justify-between`}>
           <div className="flex items-center gap-4">
-            <span className="text-5xl" aria-hidden="true">{school.emoji}</span>
+            <img
+              src={school.logo}
+              alt={`${school.name}校徽`}
+              className="w-16 h-16 object-contain bg-white border-2 border-black/20 rounded"
+            />
             <div>
               <h2 id="modal-title" className="text-3xl font-black text-black tracking-tight">{school.name}</h2>
               <p className="font-bold text-black/70">📍 台灣 {school.loc}</p>
