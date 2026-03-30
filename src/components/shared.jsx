@@ -30,6 +30,25 @@ export const IconChevron = ({ isOpen }) => (
   </svg>
 );
 
+export const IconHomeTop = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M12 4 5 10v9h14v-9L12 4Z" />
+    <path d="M9.5 19v-5h5v5" />
+    <path d="M12 2v6" />
+    <path d="m9 5 3-3 3 3" />
+  </svg>
+);
+
 export const Badge = ({ text, color = 'bg-red-500' }) => (
   <div
     className={`absolute -top-4 -right-4 ${color} text-white font-black px-3 py-1 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-6 z-10 text-sm animate-bounce uppercase`}

@@ -76,8 +76,8 @@ export default function SchoolModal({ school, onClose }) {
           <ul className="space-y-3">
             {school.highlights.map((h, i) => (
               <li key={i} className="flex items-start gap-3 font-bold text-base leading-relaxed">
-                <span className="text-xl mt-0.5" aria-hidden="true">•</span>
-                <span>{h}</span>
+                <span className="text-xl mt-0.5" aria-hidden="true">{h.icon}</span>
+                <span>{h.text}</span>
               </li>
             ))}
           </ul>

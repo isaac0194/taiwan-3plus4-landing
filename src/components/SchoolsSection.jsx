@@ -18,24 +18,33 @@ const schools = [
   {
     name: "六信高中",
     loc: "台南市",
-    majors: ["電機科", "機械科", "冷凍空調科"],
+    majors: ["資訊科", "烘焙科"],
     color: "bg-red-400",
     panelColor: "bg-cyan-300",
     logo: LOGOS.lhvs,
     badge: "南台灣口碑",
     link: "https://www.lhvs.tn.edu.tw/",
-    highlights: ["全額補助學費", "住宿補貼", "就業保障"],
+    highlights: [
+      { icon: "🏫", text: "南台灣口碑名校，創校近 70 年，校風嚴謹" },
+      { icon: "💰", text: "第一志願入學贈「物品抵用券」，全額折抵制服與寢具費用" },
+      { icon: "📜", text: "通過華測（TOCFL）分級，最高可領取 4,000 元獎學金" },
+    ],
   },
   {
     name: "新光高中",
     loc: "高雄市",
-    majors: ["電機科", "資訊科", "冷凍空調科"],
+    majors: ["資訊科"],
     color: "bg-blue-400",
     panelColor: "bg-slate-200",
     logo: LOGOS.sghs,
     badge: "住宿全免",
     link: "https://sg.sgshedu.tw/",
-    highlights: ["住宿費全免", "企業實習", "技術認證"],
+    highlights: [
+      { icon: "💰", text: "住宿費全免，每月僅需負擔水電費約 300 元" },
+      { icon: "⚙️", text: "直升正修科技大學電機工程系，南台灣工程界名氣響亮" },
+      { icon: "💵", text: "學費政府全額補助，實習津貼每月至少 NT$ 28,590 起" },
+      { icon: "🚉", text: "近後庄火車站，校內設僑生輔導老師協助居留、健保及職場適應" },
+    ],
   },
   {
     name: "育德工家",
@@ -46,18 +55,28 @@ const schools = [
     logo: LOGOS.ytvs,
     badge: "直升名校",
     link: "https://ytvs.tn.edu.tw/",
-    highlights: ["直升科大", "國際交流", "雙師制度"],
+    highlights: [
+      { icon: "🎓", text: "直升南臺科大，私立科大排名前茅，學歷含金量高" },
+      { icon: "🏘️", text: "4 人房宿舍每學期 12,500 元，專責老師管理生活起居" },
+      { icon: "👨‍🍳", text: "學校本身即為國家檢定考場，原場地練習、原場地考照，取證率高" },
+      { icon: "💰", text: "3 年學費全免，入學費用透明，每月享 NT$ 28,590 以上法定實習津貼" },
+    ],
   },
   {
     name: "華德工家",
     loc: "高雄市",
-    majors: ["資訊科", "電機科", "餐飲科", "美容科"],
+    majors: ["資訊科", "烘焙科", "餐飲科"],
     color: "bg-purple-400",
     panelColor: "bg-violet-200",
     logo: LOGOS.hdvs,
     badge: "設施最完善",
     link: "https://www.hdvs.kh.edu.tw/",
-    highlights: ["頂尖設備", "多元科系", "產業合作"],
+    highlights: [
+      { icon: "🎓", text: "畢業可直升龍華科大或元培醫大，升學地圖最廣" },
+      { icon: "🏘️", text: "宿舍附冷氣、Wi-Fi、冰箱、微波爐、電鍋、烘乾機，技高宿舍頂配" },
+      { icon: "🛣️", text: "位於高雄茄萣區，鄰近省道，校方協助媒合優質實習廠商" },
+      { icon: "💰", text: "學費全免、津貼符合勞基法（NT$ 28,590 起），享勞健保保障" },
+    ],
   },
 ];
 
@@ -121,10 +140,16 @@ export default function SchoolsSection() {
                     ))}
                   </ul>
                 </div>
-                <div className="p-4 border-t-4 border-black">
-                  <span className="font-black text-sm flex items-center gap-1 group-hover:gap-3 transition-all">
-                    查看學校亮點 →
-                  </span>
+                <div className="p-0 border-t-4 border-black bg-black">
+                  <div className="px-4 py-5 text-center text-white font-black tracking-wide">
+                    <span className="inline-block bg-yellow-300 text-black border-2 border-black px-3 py-1 text-sm mb-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+                      精選
+                    </span>
+                    <span className="flex items-center justify-center gap-2 text-lg group-hover:gap-4 transition-all">
+                      查看學校亮點
+                      <span aria-hidden="true">✦</span>
+                    </span>
+                  </div>
                 </div>
               </article>
             ))}

@@ -19,11 +19,24 @@ const chartOptions = {
   maintainAspectRatio: false,
   plugins: {
     legend: { display: false },
-    tooltip: { backgroundColor: '#000', padding: 12 },
+    tooltip: {
+      backgroundColor: '#000',
+      padding: 14,
+      titleFont: { size: 16, weight: 'bold' },
+      bodyFont: { size: 15, weight: 'bold' },
+    },
   },
   scales: {
-    x: { grid: { color: '#000' }, ticks: { font: { weight: 'bold' } } },
-    y: { grid: { display: false }, ticks: { font: { weight: 'bold', size: 14 } } },
+    x: {
+      grid: { color: 'rgba(0, 0, 0, 0.28)', lineWidth: 2 },
+      ticks: { color: '#111827', font: { weight: 'bold', size: 15 } },
+      border: { color: '#000', width: 3 },
+    },
+    y: {
+      grid: { display: false },
+      ticks: { color: '#111827', font: { weight: 'bold', size: 20 } },
+      border: { color: '#000', width: 3 },
+    },
   },
 };
 
@@ -52,14 +65,18 @@ export default function FinanceSection() {
           </h2>
         </FadeInUp>
         <SlideIn from="left">
-          <div className="bg-slate-50 border-4 border-black p-6 sm:p-12 comic-shadow relative group text-black">
+          <div className="bg-[#fff1a8] border-4 border-black p-6 sm:p-12 comic-shadow relative group text-black">
             <Badge text="省錢首選!" color="bg-green-500" />
-            <div className="h-80 w-full" role="img" aria-label="財務比較圖表：3+4專班預計可帶回 RM 45,000 啟動金，一般私大費用約 RM 120,000，一般國大費用約 RM 80,000">
+            <div
+              className="h-80 w-full bg-[#e7eefc] border-4 border-black p-4 sm:p-6 comic-shadow"
+              role="img"
+              aria-label="財務比較圖表：3+4專班預計可帶回 RM 45,000 啟動金，一般私大費用約 RM 120,000，一般國大費用約 RM 80,000"
+            >
               <Bar options={chartOptions} data={chartData} />
             </div>
-            <div className="mt-10 p-6 bg-yellow-100 border-4 border-black border-dashed font-black text-lg text-center">
+            <div className="mt-10 p-6 bg-[#fff7cc] border-4 border-black border-dashed font-black text-xl text-center leading-relaxed">
               <span aria-hidden="true">💡</span> 實習津貼結餘：畢業後預計可帶回約{' '}
-              <strong className="text-red-600 text-3xl font-black">RM 45,000</strong> 的啟動金！
+              <strong className="text-red-600 text-4xl font-black">RM 45,000</strong> 的啟動金！
             </div>
           </div>
         </SlideIn>

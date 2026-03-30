@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import FeaturesSection from './components/FeaturesSection';
 import Footer from './components/Footer';
+import { IconHomeTop } from './components/shared';
 
 // Lazy load 非首屏元件，減少初始 bundle 大小
 const FinanceSection = lazy(() => import('./components/FinanceSection'));
@@ -75,6 +76,17 @@ export default function App() {
       </main>
 
       <Footer />
+
+      <a
+        href="#"
+        className="fixed bottom-6 right-6 z-[120] bg-yellow-400 text-black border-4 border-black px-4 py-3 comic-shadow hover:-translate-y-1 transition-all focus:outline-none focus:ring-4 focus:ring-black flex items-center gap-3"
+        aria-label="回首頁"
+      >
+        <span className="bg-white border-2 border-black p-2">
+          <IconHomeTop />
+        </span>
+        <span className="font-black text-base uppercase leading-none">回首頁</span>
+      </a>
     </div>
   );
 }

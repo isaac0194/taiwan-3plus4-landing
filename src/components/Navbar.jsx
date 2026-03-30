@@ -1,5 +1,12 @@
 import { IconZap } from './shared';
 
+const navItems = [
+  { href: '#finance', label: '財務分析' },
+  { href: '#schools', label: '合作學校' },
+  { href: '#news', label: '媒體報導' },
+  { href: '#timeline', label: '報名時程' },
+];
+
 export default function Navbar() {
   return (
     <nav
@@ -14,11 +21,17 @@ export default function Navbar() {
           </div>
           <span className="text-2xl sm:text-3xl tracking-tighter italic uppercase">Taiwan 3+4</span>
         </a>
-        <div className="hidden lg:flex gap-8 text-sm uppercase text-black" role="list">
-          <a href="#finance" className="hover:text-red-600 transition-colors focus:outline-none focus:underline" role="listitem">財務分析</a>
-          <a href="#schools" className="hover:text-red-600 transition-colors focus:outline-none focus:underline" role="listitem">合作學校</a>
-          <a href="#news" className="hover:text-red-600 transition-colors focus:outline-none focus:underline" role="listitem">媒體報導</a>
-          <a href="#timeline" className="hover:text-red-600 transition-colors focus:outline-none focus:underline" role="listitem">報名時程</a>
+        <div className="hidden lg:flex gap-3 text-black items-center" role="list">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="bg-white border-4 border-black px-4 py-2 text-base leading-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-yellow-300 hover:-translate-y-1 transition-all focus:outline-none focus:ring-4 focus:ring-black"
+              role="listitem"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
         <a
           href="#contact"
