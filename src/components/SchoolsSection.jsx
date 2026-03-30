@@ -142,9 +142,6 @@ export default function SchoolsSection() {
                 </div>
                 <div className="p-0 border-t-4 border-black bg-black">
                   <div className="px-4 py-5 text-center text-white font-black tracking-wide">
-                    <span className="inline-block bg-yellow-300 text-black border-2 border-black px-3 py-1 text-sm mb-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                      精選
-                    </span>
                     <span className="flex items-center justify-center gap-2 text-lg group-hover:gap-4 transition-all">
                       查看學校亮點
                       <span aria-hidden="true">✦</span>
